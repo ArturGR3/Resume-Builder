@@ -71,7 +71,6 @@ def main(file_path: str, model: str = "gpt-4o-mini"):
         json.dump(response.model_dump_json(indent=2), file, indent=4)
     
     print(f"files saved to {saved_path}")
-   
 
 if __name__ == "__main__":
     main("mozila_jd.md", "gpt-4o-mini")

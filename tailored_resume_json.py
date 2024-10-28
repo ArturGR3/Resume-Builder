@@ -82,6 +82,7 @@ class SkillSections(BaseModel):
     skill_section: List[SkillSection] = Field(description="Skill sections, each containing a group of skills tailored to the job description.")
 
 class Resume(BaseModel):
+    resume_title: str = Field(description="Short title starting with company name _ position name.")
     contact_info: ContactInfo = Field(description="Contact information of the person.")
     summary: Summary = Field(description="A short summary of the person's professional background and skills tailored to the job description.")
     media: Media = Field(description="Media links of the person.")
@@ -93,11 +94,9 @@ class Resume(BaseModel):
     nice_to_add: Optional[List[str]] = Field(description="Something that is not present in the resume but will be good to add to make it more relevant to the job description.", min_items=0, max_items=5)
     
 
-def main(resume_path: str, job_description_path: str, model: client.settings.default_model):
+def main(resume_path: str, job_description_path: str, model: str):
     # extract json from resume and job description
-    model = 'gpt-4o-2024-08-06'
-    resume_path = 'resume_gpt-4o-mini_2024-10-28.json'
-    job_description_path = 'job_description_gpt-4o-mini_2024-10-28.json'
+    model = client.settings.default_model
     resume_json = extract_json(resume_path)
     job_description_json = extract_json(job_description_path)
     
@@ -126,6 +125,16 @@ def main(resume_path: str, job_description_path: str, model: client.settings.def
         response_model=Resume,
     )
     
+    resume_title = response.resume_title
+    # save response into json file 
+    with open(f'{resume_title}_{date.today().strftime("%Y-%m-%d")}.json', 'w') as file:
+        json.dump(response.model_dump(), file, indent=2)
+    
     return response
 
+if __name__ == "__main__":
+    model = 'gpt-4o-2024-08-06'
+    resume_path = 'resume_gpt-4o-mini_2024-10-28.json'
+    job_description_path = 'job_description_gpt-4o-mini_2024-10-28.json'
 
+    main(resume_path, job_description_path, model)

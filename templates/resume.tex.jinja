@@ -1,0 +1,126 @@
+%==== PACKAGES AND OTHER DOCUMENT CONFIGURATIONS  ====%
+\documentclass{resume} % Use the custom resume.cls style
+\usepackage[left=0.25in,top=0.25in,right=0.25in,bottom=0.25in]{geometry} % Document margins
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome} % For GitHub and LinkedIn symbols
+\usepackage{textcomp} % For mobile phone and email symbols
+% \usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{xcolor}  % Required for defining custom colors
+\usepackage{hyperref}
+% Define your custom colors
+% \definecolor{myblue}{RGB}{173, 216, 246}
+% \definecolor{myblue}{RGB}{123, 176, 206}
+\definecolor{myblue}{RGB}{0, 164, 218}
+
+% Set hyperlink colors
+\hypersetup{
+    colorlinks=true,
+    linkcolor=myblue,
+    citecolor=myblue,
+    urlcolor=myblue
+}
+
+\usepackage{hyperref}
+
+%==== Headings ====%
+\name{\VAR{contact_info.name}}
+\address{
+    {\faEnvelope} \href{mailto:\VAR{contact_info.email}}{\VAR{contact_info.email}} \quad
+    \BLOCK{ if media.github_url }{\faGithub} \href{\VAR{media.github_url}}{GitHub} \quad \BLOCK{ endif }
+    \BLOCK{ if media.linkedin_url }{\faLinkedin} \href{\VAR{media.linkedin_url}}{LinkedIn}\BLOCK{ endif }
+}
+\address{\VAR{contact_info.location[0]}}
+
+\begin{document}
+
+% Summary Section
+\BLOCK{ if summary }
+\begin{rSection}{Summary}
+    \VAR{summary.summary}
+\end{rSection}
+\BLOCK{ endif }
+
+%==== WORK EXPERIENCE SECTION =====%
+\BLOCK{ if experiences.work_experience }
+\begin{rSection}{Professional Experience}
+    \BLOCK{ for exp in experiences.work_experience }
+    \begin{rSubsection}
+        {\VAR{exp.company}}{\VAR{exp.from_date} - \VAR{exp.to_date}}
+        {\VAR{exp.role}}{\VAR{exp.location}}
+        \BLOCK{ for point in exp.description }
+        \item \VAR{point}
+        \BLOCK{ endfor }
+    \end{rSubsection}
+    \BLOCK{ endfor }
+\end{rSection}
+\BLOCK{ endif }
+
+%==== EDUCATION SECTION ====%
+\BLOCK{ if educations.education }
+\begin{rSection}{Education}
+    \BLOCK{ for edu in educations.education }
+    \begin{rSubsection}
+        {\VAR{edu.university}}{\VAR{edu.from_date} - \VAR{edu.to_date}}
+        {\VAR{edu.degree}}{}
+        \BLOCK{ if edu.special_achievements }
+            \BLOCK{ for achievement in edu.special_achievements }
+                \item \VAR{achievement}
+            \BLOCK{ endfor }
+        \BLOCK{ else }
+            \item % Add empty item if no achievements
+        \BLOCK{ endif }
+    \end{rSubsection}
+    \BLOCK{ endfor }
+\end{rSection}
+\BLOCK{ endif }
+
+%==== CERTIFICATIONS SECTION ====%
+\BLOCK{ if certifications_trainings.certifications_trainings }
+\begin{rSection}{Certifications \& Training}
+    \BLOCK{ for cert in certifications_trainings.certifications_trainings }
+    \begin{rCertification}
+        {\VAR{cert.name}}
+        {\VAR{cert.organization}}
+        {\VAR{cert.date}}
+        \BLOCK{ if cert.description }
+            \item \VAR{cert.description}
+        \BLOCK{ else }
+            \item % Add empty item if no description
+        \BLOCK{ endif }
+    \end{rCertification}
+    \BLOCK{ endfor }
+\end{rSection}
+\BLOCK{ endif }
+
+%==== PROJECTS SECTION ====%
+\BLOCK{ if projects.projects }
+\begin{rSection}{Projects}
+    \BLOCK{ for project in projects.projects }
+    \begin{rProjectSection}
+        {\href{\VAR{project.link}}{\VAR{project.name}}}
+        {\VAR{project.date}}
+        \BLOCK{ if project.description }
+            \item \VAR{project.description}
+        \BLOCK{ else }
+            \item % Add empty item if no description
+        \BLOCK{ endif }
+    \end{rProjectSection}
+    \BLOCK{ endfor }
+\end{rSection}
+\BLOCK{ endif }
+
+%==== TECHNICAL SKILLS SECTION ====%
+\BLOCK{ if skill_sections.skill_section }
+\begin{rSection}{Technical Skills}
+    \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+    \BLOCK{ for section in skill_sections.skill_section }
+        \VAR{section.name}: & \VAR{', '.join(section.skills)} \\
+    \BLOCK{ endfor }
+    \end{tabular}
+\end{rSection}
+\BLOCK{ endif }
+
+\end{document}
