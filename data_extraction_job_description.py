@@ -9,10 +9,11 @@ import openai
 import instructor
 from dotenv import load_dotenv, find_dotenv
 import sys
+from src.utils.llm_factory import LLMFactory
 
 load_dotenv(find_dotenv(usecwd=True))
 
-client = instructor.from_openai(openai.OpenAI())
+client = LLMFactory('openai')
 
 def extract_text(file_path: str) -> str:
     _, file_extension = os.path.splitext(file_path)
@@ -53,7 +54,7 @@ def main(file_path: str, model: str = "gpt-4o-mini"):
     
     job_description_text = extract_text(file_path)
     
-    response = client.chat.completions.create(
+    response = client.create_completion(
         model=model,
         messages=[
             {"role": "system", "content": "You are a job description parser. Parse the job description and extract the data according to the schema."},
@@ -73,8 +74,7 @@ def main(file_path: str, model: str = "gpt-4o-mini"):
    
 
 if __name__ == "__main__":
-    
-    main()
+    main("mozila_jd.md", "gpt-4o-mini")
     
 # with open('resume_gpt-4o-mini_2024-10-28.json', 'r') as file:
 #     data = json.load(file)

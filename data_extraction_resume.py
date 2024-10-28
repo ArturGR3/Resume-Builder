@@ -9,10 +9,11 @@ import openai
 import instructor
 from dotenv import load_dotenv, find_dotenv
 import sys
+from src.utils.llm_factory import LLMFactory
 
 load_dotenv(find_dotenv(usecwd=True))
 
-client = instructor.from_openai(openai.OpenAI())
+client = LLMFactory('openai')
 
 def extract_text(file_path: str) -> str:
     _, file_extension = os.path.splitext(file_path)
@@ -119,7 +120,7 @@ def main(file_path: str, model: str = "gpt-4o-mini"):
     Extract data from a resume file and save the response to a JSON file.
     """ 
     resume_text = extract_text(file_path)
-    response = client.chat.completions.create(
+    response = client.create_completion(
         model=model,
         messages=[
             {"role": "system", "content": "You are a resume parser. Parse the resume and extract the data according to the schema."},
@@ -136,7 +137,7 @@ def main(file_path: str, model: str = "gpt-4o-mini"):
     print(f"files saved to {saved_path}")
 
 if __name__ == "__main__":
-    main()
+    main("./resumes/resume_md.md", "gpt-4o-mini")
     
     
 # # open json file and print the data
