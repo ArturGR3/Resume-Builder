@@ -1,0 +1,8 @@
+PyPDF2
+pydantic
+typing
+openai
+instructor
+dotenv
+requests
+flask

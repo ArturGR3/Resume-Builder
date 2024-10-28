@@ -1,0 +1,234 @@
+{
+    "contact_info": {
+        "name": "Artur Grygorian",
+        "email": "arturgrygorian3@gmail.com",
+        "possible_work_locations": [
+            "Berlin, Germany",
+            "Atlanta, GA, USA",
+            "Remote"
+        ]
+    },
+    "summary": {
+        "summary": "With a decade of hands-on experience spanning supply chain and eCommerce. I bring a wealth of knowledge in advanced data analytics, modeling, and team leadership. I have had significant individual impact as well as built high performing teams from scratch. In my new role I am looking to solve complex analytical problems using modern machine learning and AI tools."
+    },
+    "media": {
+        "linkedin_url": "https://www.linkedin.com/in/arturgrygorian/",
+        "github_url": "https://github.com/ArturG93",
+        "medium_url": "https://medium.com/@arturgrygorian3",
+        "website_url": null
+    },
+    "experiences": {
+        "work_experience": [
+            {
+                "role": "Sr. Manager Analytics (Global Fulfilment Speed)",
+                "company": "Wayfair",
+                "location": "Berlin, Germany",
+                "from_date": "Aug 2022",
+                "to_date": "Aug 2024",
+                "description": [
+                    "Head of Global Analytics Team (EU, UK, USA) responsible for strategy of tech implementation to improve delivery promise accuracy.",
+                    "Designed Target setting framework that translated company wide initiatives relevant to delivery promise into actionable targets for the team. Helping stakeholders to understand the impact of their initiatives on the delivery promise to decide priorities.",
+                    "Boosted speed badging (fast delivery promise saturation) by 1500 bps by improving accuracy of delivery speed model and resolving tech debt. Which resulted in additional ~$5M in annual GRS via higher conversion.",
+                    "Together with ML engineers designed and implemented A/B testing, measuring the conversion impact of faster delivery promise to justify strategic initiatives.",
+                    "Designed causal inference framework to estimate the impact of delivery speed on conversion, controlling for other factors that might affect conversion. This framework was used to guide the investment in faster delivery network and to estimate the ROI of the initiative.",
+                    "Built a high performing team of 5+ data scientists and analytics engineers focusing on delivering high quality analytics and AI solutions."
+                ]
+            },
+            {
+                "role": "Analytics Manager (EU Fulfilment Speed)",
+                "company": "Wayfair",
+                "location": "Berlin, Germany",
+                "from_date": "Jun 2021",
+                "to_date": "Aug 2022",
+                "description": [
+                    "As a Head of EU analytics engineering team, responsible for delivery promise accuracy efforts, with a specific focus on supplier lead time and carrier speed. Provided analytics support to Operations teams via building data pipelines and dashboards that enabled them to make data-driven decisions.",
+                    "Developed a machine learning based model to estimate the delivery time for the EU network that improved speed by 1.3 days, resulting in a substantial increase in conversion that brought an additional ~\u20ac10M in annual GRS",
+                    "Established key performance indicators (KPIs) and designed supportive dashboards to evaluate the health of the delivery network. Led Weekly Business Reviews (WBRs) and Monthly Business Reviews (MBRs), bringing insights to executive leadership",
+                    "Led strategy promotion strategy for delivery promise speed for high volume events like Black Friday, Christmas and Wayday. Involved stakeholders from across the company to ensure alignment and buy-in for the initiatives."
+                ]
+            },
+            {
+                "role": "Analytics Manager (Delivery Speed)",
+                "company": "The Home Depot",
+                "location": "Atlanta, GA, USA",
+                "from_date": "Sep 2019",
+                "to_date": "Apr 2021",
+                "description": [
+                    "Created an Machine Learning based model that improved delivery promise by 0.7 days without impact on delivery reliability, resulting in >$100M in annual GRS via higher conversion",
+                    "Supported operations teams with data insights, uncovered problematic areas in the network through exploratory analytics, and collaborated on solutions. Created Multiple data pipelines using SQL Server and Google BigQuery to connect carrier, warehouse and customer data to build a comprehensive view of the delivery network.",
+                    "Established and led data science team of 3 people from inception, hiring, mentoring, and guiding the team to become one of the most impactful teams in the organization, which lead to multiple awards and recognitions at the company."
+                ]
+            },
+            {
+                "role": "Senior Data Analyst (Inbound Network Optimization)",
+                "company": "The Home Depot",
+                "location": "Atlanta, GA, USA",
+                "from_date": "Aug 2017",
+                "to_date": "Sep 2019",
+                "description": [
+                    "Developed and implemented a truckload rounding model, which used simulation and optimization techniques to determine the optimal number of truckloads to round up to based on the forecasted demand, resulting in annual savings of ~$5M in transportation costs",
+                    "Implemented enhancements to the truckload planning model improving data pipeline and adding new features during migration from SQL Server to Google BigQuery, which allowed to reduce the time of the planning process from 2 days to 15 minutes",
+                    "Moved several key reports from Excel to Tableau, that made discovery of insights easier and more interactive for the stakeholders",
+                    "Recognized for outstanding performance, promoted to Senior Data Analyst in 10 months, was nominated with Homer Award for the most impactful project."
+                ]
+            }
+        ]
+    },
+    "educations": {
+        "education": [
+            {
+                "degree": "Master's in Statistics",
+                "university": "Georgia Southern University",
+                "from_date": "2015",
+                "to_date": "2017",
+                "special_achievements": [
+                    "Best Graduate Assistant Award",
+                    "GPA 4.0/4.0"
+                ]
+            },
+            {
+                "degree": "Master's in Economics",
+                "university": "Kyiv School of Economics",
+                "from_date": "2012",
+                "to_date": "2014",
+                "special_achievements": [
+                    "Won KPMG Case Competition Ukraine",
+                    "Finalist of EY Case Competition Ukraine"
+                ]
+            },
+            {
+                "degree": "Master's in Mathematics",
+                "university": "Odesa National University",
+                "from_date": "2007",
+                "to_date": "2013",
+                "special_achievements": null
+            }
+        ]
+    },
+    "certifications_trainings": {
+        "certifications_trainings": [
+            {
+                "name": "Generative AI with Large Language Models",
+                "organization": "Coursera, DeepLearning.AI",
+                "date": "October 2023",
+                "description": "Generative AI fundamentals: Lifecycle, transformer architecture, LLMs. Model optimization: Pre-training, fine-tuning, PEFT, empirical scaling laws. Advanced techniques: RLHF, chain-of-thought prompting, information retrieval. Practical application: Hands-on experience with state-of-the-art LLM training, tuning, and deployment.",
+                "information_source": "resume"
+            },
+            {
+                "name": "Exam 461: Querying Microsoft SQL Server 2012/2014",
+                "organization": "Microsoft",
+                "date": "May 2018",
+                "description": "Database Objects: Tables, constraints, views, stored procedures, functions, triggers. Data Manipulation: Complex SELECT queries, subqueries, joins, T-SQL functions. Data Modification: INSERT, UPDATE, DELETE, transactions, merge statements. Query Optimization: Performance analysis, indexing, execution plans. T-SQL Programming: Stored procedures, user-defined functions, triggers. Advanced Concepts: Transaction management, error handling, dynamic SQL, XML and spatial data.",
+                "information_source": "resume"
+            },
+            {
+                "name": "Applied Tiny Machine Learning (TinyML) for Scale",
+                "organization": "HarvardX",
+                "date": "March 2023",
+                "description": "Machine Learning: Data preprocessing, model training, optimization for resource-constrained devices. TensorFlow Lite: Deployment of tiny ML models on low-power devices. MLOps for TinyML: Automation of ML lifecycle, scalable deployments. TinyML Applications: Case studies, project design, real-world implementation.",
+                "information_source": "resume"
+            }
+        ]
+    },
+    "projects": {
+        "projects": [
+            {
+                "name": "End to End ML Deployment Using AutoGluon and OpenFE",
+                "date": "Jun 2024",
+                "link": "https://github.com/ArturGR3/MLOps-project",
+                "description": "Create a template for rapid MVP deployment of machine learning models with automated feature engineering and MLOps best practices."
+            },
+            {
+                "name": "RAG for Recipe Recommendation System",
+                "date": "Sep 2024",
+                "link": "https://github.com/ArturGR3/food_search_RAG",
+                "description": "Implement a food recipe recommendation system using RAG (Retrieval-Augmented Generation) to help users find relevant recipes based on their queries."
+            },
+            {
+                "name": "YouTube Transcript Analyzer",
+                "date": "Oct 2024",
+                "link": "https://github.com/ArturGR3/Youtube-transcript-Q-A",
+                "description": "Analyze YouTube video transcripts using LLMs to provide a summary of main topics, timestamps, and enable Q&A based on video content."
+            },
+            {
+                "name": "LLM Kaggle Winning Solution",
+                "date": "Sep 2024",
+                "link": "https://github.com/ArturGR3/LLM-kaggle-competition",
+                "description": "Develop a winning solution for the LLMZoomCamp Kaggle competition focused on solving math problems using Large Language Models (LLMs)."
+            }
+        ]
+    },
+    "skill_sections": {
+        "skill_section": [
+            {
+                "name": "Programming Languages and Data Analysis",
+                "skills": [
+                    "Python",
+                    "R",
+                    "SQL"
+                ]
+            },
+            {
+                "name": "Data Storage and Retrieval",
+                "skills": [
+                    "LanceDB",
+                    "FAISS",
+                    "ElasticSearch"
+                ]
+            },
+            {
+                "name": "Data Visualization",
+                "skills": [
+                    "Tableau",
+                    "Data Studio",
+                    "Looker",
+                    "matplotlib",
+                    "seaborn",
+                    "plotly",
+                    "streamlit",
+                    "gradio"
+                ]
+            },
+            {
+                "name": "Machine Learning and AI",
+                "skills": [
+                    "PyTorch",
+                    "TensorFlow",
+                    "Scikit-learn",
+                    "AutoGluon",
+                    "LightAutoML",
+                    "xgboost",
+                    "lightgbm",
+                    "catboost",
+                    "MLflow",
+                    "Instructor",
+                    "RAG",
+                    "LangChain",
+                    "OpenAI",
+                    "Anthropic",
+                    "Gemini",
+                    "Ollama",
+                    "Groq"
+                ]
+            },
+            {
+                "name": "Cloud Platforms",
+                "skills": [
+                    "AWS",
+                    "GCP"
+                ]
+            },
+            {
+                "name": "Development Tools",
+                "skills": [
+                    "GitHub",
+                    "Docker",
+                    "Makefile",
+                    "VSCode",
+                    "Copilot",
+                    "Cursor"
+                ]
+            }
+        ]
+    }
+}
