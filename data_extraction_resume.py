@@ -77,22 +77,23 @@ class Education(BaseModel):
 class Educations(BaseModel):
     education: List[Education] = Field(description="Educations, including degree, university, dates, and special achievements.")
 
+class Project(BaseModel):
+    name: str = Field(description="The name of the project.")
+    link: Optional[str] = Field(description="The link to the project.")   
+    date: str = Field(description="The date of the project. e.g Aug 2023")
+    key_technologies_concepts: List[str] = Field(description="""Key technologies and concepts used in the project.""")
+
 class Certifications_Training(BaseModel):
     name: str = Field(description="The name of the certification or training (course, bootcamp etc.)")
+    link: Optional[str] = Field(description="The link to the certification or training.")
     organization: str = Field(description="The organization that awarded the certification or training.")
     date: str = Field(description="The date of the certification or training.")
-    description: Optional[str] = Field(description="""A short description of the certification or training based on the resume or 
-                                       based on your knowledge base.""")
+    key_technologies_concepts: List[str] = Field(description="""Key technologies and concepts used in the certification or training.""")
+    project: Optional[Project] = Field(description="The project related to the certification or training.")
     information_source: Optional[Literal["resume", "knowledge base", "both"]] = Field(description="The source of the information about the certification.")
     
 class Certifications_Trainings(BaseModel):
-    certifications_trainings: List[Certifications_Training] = Field(description="Certifications or trainings, including name, organization, date, description, and information source.")
-    
-class Project(BaseModel):
-    name: str = Field(description="The name of the project.")
-    date: str = Field(description="The date of the project. e.g Aug 2023")
-    link: Optional[str] = Field(description="The link to the project.")   
-    description: str = Field(description="A description of the project.")
+    certifications_trainings: List[Certifications_Training] = Field(description="Certifications or trainings, including name, organization, date, description, and information source.")  
 
 class Projects(BaseModel):
     projects: List[Project] = Field(description="Projects, including name, date, link, and description.")
@@ -132,7 +133,7 @@ def main(file_path: str, model: str = "gpt-4o-mini"):
     saved_path = f'resume_{model}_{date.today().strftime("%Y-%m-%d")}.json'
     
     with open(saved_path, 'w') as file:
-        json.dump(response.model_dump_json(indent=2), file, indent=4)
+        json.dump(response.model_dump(), file, indent=2)
     
     print(f"files saved to {saved_path}")
 

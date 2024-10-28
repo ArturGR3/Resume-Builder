@@ -63,12 +63,13 @@ def main(file_path: str, model: str = "gpt-4o-mini"):
         response_model=JobDescription,
     )
     job_name = response.job_title
+    company_name = response.company_name
     
     # save the response to a json file
-    saved_path = f'job_description_{model}_{date.today().strftime("%Y-%m-%d")}.json'
+    saved_path = f'JD_{company_name}_{job_name}_{date.today().strftime("%Y-%m-%d")}.json'
     
     with open(saved_path, 'w') as file:
-        json.dump(response.model_dump_json(indent=2), file, indent=4)
+        json.dump(response.model_dump(), file, indent=2)
     
     print(f"files saved to {saved_path}")
 
