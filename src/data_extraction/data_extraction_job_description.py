@@ -13,8 +13,6 @@ from src.utils.llm_factory import LLMFactory
 
 load_dotenv(find_dotenv(usecwd=True))
 
-client = LLMFactory('openai')
-
 def extract_text(file_path: str) -> str:
     _, file_extension = os.path.splitext(file_path)
     
@@ -50,7 +48,11 @@ class JobDescription(BaseModel):
     job_benefits: List[str] = Field(description="The benefits of the job.")
     keywords: List[str] = Field(description="The keywords of the job that might be useful for the resume search.")
 
-def main(file_path: str, model: str = "gpt-4o-mini"):
+def main(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini"):
+    
+    client = LLMFactory(provider=provider)
+    if provider == "openai" and not model.startswith("gpt"):
+        raise ValueError("Only OpenAI models starting with gpt are supported.")
     
     job_description_text = extract_text(file_path)
     

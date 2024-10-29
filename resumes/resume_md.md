@@ -7,7 +7,7 @@
 ### Email: arturgrygorian3@gmail.com  
 ### [LinkedIn](https://www.linkedin.com/in/arturgrygorian/)  
 ### [Medium](https://medium.com/@arturgrygorian3)  
-### [GitHub](https://github.com/ArturG93)
+### [GitHub](https://github.com/ArturG3)
 
 ## SUMMARY
 With a decade of hands-on experience spanning supply chain and eCommerce. I bring a wealth of knowledge in advanced data analytics, modeling, and team leadership. I have had significant individual impact as well as built high performing teams from scratch. In my new role I am looking to solve complex analytical problems using modern machine learning and AI tools. 

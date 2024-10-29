@@ -18,7 +18,7 @@ class OpenAISettings(LLMProviderSettings):
 class AnthropicSettings(LLMProviderSettings):
     api_key: str = os.getenv("ANTHROPIC_API_KEY")
     default_model: str = "claude-3-5-sonnet-20240620"
-    max_tokens: int = 1024
+    max_tokens: int = 4096
 
 class LlamaSettings(LLMProviderSettings):
     api_key: str = "key"  # required, but not used

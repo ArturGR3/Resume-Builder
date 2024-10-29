@@ -13,7 +13,6 @@ from src.utils.llm_factory import LLMFactory
 
 load_dotenv(find_dotenv(usecwd=True))
 
-client = LLMFactory('openai')
 
 def extract_text(file_path: str) -> str:
     _, file_extension = os.path.splitext(file_path)
@@ -116,10 +115,14 @@ class Resume(BaseModel):
     projects: Projects = Field(description="Projects of the person.")
     skill_sections: SkillSections = Field(description="Skill sections of the person.")
 
-def main(file_path: str, model: str = "gpt-4o-mini"):
+def main(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini"):
     """
     Extract data from a resume file and save the response to a JSON file.
     """ 
+    client = LLMFactory(provider=provider)
+    if provider == "openai" and not model.startswith("gpt"):
+        raise ValueError("Only OpenAI models starting with gpt are supported.")
+    
     resume_text = extract_text(file_path)
     response = client.create_completion(
         model=model,
