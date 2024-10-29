@@ -96,14 +96,19 @@ With a decade of hands-on experience spanning supply chain and eCommerce. I brin
 - Build Automation: Makefile
 - IDEs and Productivity Tools: VSCode, Copilot, Cursor
 
-## Certifications: 
-### Generative AI with Large Language Models (Coursera, DeepLearning.AI) - October 2023
+## Certifications and Trainings: 
+
+### [Generative AI with Large Language Models (Coursera, DeepLearning.AI)](https://coursera.org/share/9459a80d6710c6beebe8355a73b52368) - October 2023
+
+Key Technologies and Concepts:
 - Generative AI fundamentals: Lifecycle, transformer architecture, LLMs
 - Model optimization: Pre-training, fine-tuning, PEFT, empirical scaling laws
 - Advanced techniques: RLHF, chain-of-thought prompting, information retrieval
 - Practical application: Hands-on experience with state-of-the-art LLM training, tuning, and deployment
 
-### Exam 461: Querying Microsoft SQL Server 2012/2014 (Microsoft) - May 2018
+### [Exam 461: Querying Microsoft SQL Server 2012/2014 (Microsoft)](https://www.credly.com/badges/10cdbd7b-affb-4112-9eb9-45a9c2f9e725/linked_in_profile) - May 2018
+
+Key Technologies and Concepts:
 - Database Objects: Tables, constraints, views, stored procedures, functions, triggers
 - Data Manipulation: Complex SELECT queries, subqueries, joins, T-SQL functions
 - Data Modification: INSERT, UPDATE, DELETE, transactions, merge statements
@@ -111,8 +116,9 @@ With a decade of hands-on experience spanning supply chain and eCommerce. I brin
 - T-SQL Programming: Stored procedures, user-defined functions, triggers
 - Advanced Concepts: Transaction management, error handling, dynamic SQL, XML and spatial data
 
-### Applied Tiny Machine Learning (TinyML) for Scale (HarvardX) - March 2023
+### [Applied Tiny Machine Learning (TinyML) for Scale (HarvardX)](https://courses.edx.org/certificates/06d1d51303de4beb87ee52fad25642d6) - March 2023
 
+Key Technologies and Concepts:
 - Machine Learning: Data preprocessing, model training, optimization for resource-constrained devices
 - TensorFlow Lite: Deployment of tiny ML models on low-power devices
 - MLOps for TinyML: Automation of ML lifecycle, scalable deployments
@@ -121,8 +127,9 @@ With a decade of hands-on experience spanning supply chain and eCommerce. I brin
 - Technologies: TensorFlow Lite for Microcontrollers, MLOps tools for TinyML
 - Skills Acquired: Developing, deploying, and scaling TinyML applications across domains
 
-## Bootcamps
-### MLOps Bootcamp:
+### [MLOps Bootcamp (DataTalks.Club)](https://certificate.datatalks.club/mlops-zoomcamp/2024/55db812d19a5b355790d127cb88ca72afdc49df5.pdf) - Sep 2024:
+
+Key Technologies and Concepts:
 - Introduction to MLOps concepts and maturity models
 - Experiment tracking and model management using MLflow
 - Workflow orchestration 
@@ -134,7 +141,7 @@ With a decade of hands-on experience spanning supply chain and eCommerce. I brin
 
 Purpose: Create a template for rapid MVP deployment of machine learning models with automated feature engineering and MLOps best practices.
 
-Key Technologies/Concepts:
+Key Technologies and Concepts:
 - AutoML: AutoGluon for automated model selection and training
 - Feature Engineering: OpenFE for automated feature generation
 - Cloud Infrastructure: Google Cloud VM, AWS EC2, S3
@@ -144,8 +151,8 @@ Key Technologies/Concepts:
 - Monitoring: Grafana
 - Testing: Unit and integration tests
 
+### [LLM Bootcamp (DataTalks.Club)](https://certificate.datatalks.club/llm-zoomcamp/2024/55db812d19a5b355790d127cb88ca72afdc49df5.pdf) - Oct 2024:
 
-### LLM Bootcamp:
 Key Technologies and Concepts:
 - Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG)
 - OpenAI API and open-source models (HuggingFace Hub, Ollama)
@@ -157,11 +164,8 @@ Key Technologies and Concepts:
 - Data ingestion and orchestration with Mage
 - Advanced RAG techniques: Hybrid search, document reranking
 - Integration with LangChain for improved RAG pipelines
-
-Main Skills Acquired:
 - Setting up LLM environments (GPU and CPU)
 - Implementing RAG systems with various search methods
-- Working with vector databases and embeddings
 - Evaluating and monitoring LLM-based systems
 - Orchestrating LLM workflows and data ingestion
 - Applying best practices for RAG pipeline optimization
@@ -171,25 +175,16 @@ Main Skills Acquired:
 Purpose: Implement a food recipe recommendation system using RAG (Retrieval-Augmented Generation) to help users find relevant recipes based on their queries.
 
 Key Technologies and Concepts:
-- RAG (Retrieval-Augmented Generation)
-- LanceDB (multi-modal database) with Full-Text Search (FTS)
-- LLM-based relevance scoring and filtering
-- Retrieval methods: FAISS, LanceDB FTS, Vector, and Hybrid search
-- Gradio for user interface
-- Docker for containerization
-- SQLite for data logging
-- Asyncio for concurrent API calls
-- LLM Factory for managing different LLM APIs
+- RAG (Retrieval-Augmented Generation) with FAISS, LanceDB(FTS, Vector and Hybrid search)
+- LLM-based relevance scoring, filtering and query preprocessing
+- Gradio for user interface with feedback collection
+- Docker containerization for reproducibility
+- SQLite and comprehensive logging for monitoring of user feedback and click-stream data
+- Asyncio for concurrent API calls for generating synthetic data for preliminary retrieval evaluation
+- LLM Factory for managing different LLM APIs (Groq, OpenAI, Anthropic)
 - Instructor Library for structuring LLM output
-
-Core Features:
-- Automated data collection and preprocessing
-- Synthetic data generation for evaluation
-- User query preprocessing and adjustment
-- Advanced recipe retrieval and ranking
-- User-friendly interface with feedback collection
-- Comprehensive monitoring and logging
-- Containerized application for reproducibility
+- Automated data collection, preprocessing and synthetic data generation
+- Advanced recipe retrieval and ranking system
 
 ## Projects: 
 ### [YouTube Transcript Analyzer](https://github.com/ArturGR3/Youtube-transcript-Q-A) - Oct 2024
@@ -207,19 +202,11 @@ Key Technologies and Concepts:
 
 ### [LLM Kaggle Winning Solution](https://github.com/ArturGR3/LLM-kaggle-competition) - Sep 2024
 
- Develop a winning solution for the LLMZoomCamp Kaggle competition focused on solving math problems using Large Language Models (LLMs).
+Purpose: Develop a winning solution for the LLMZoomCamp Kaggle competition focused on solving math problems using Large Language Models (LLMs).
 
 Key Technologies and Concepts:
-- Claude-3.5 Sonnet LLM
-- Zero-shot chain of thought reasoning
-- LLM Python code generation and execution
+- Claude-3.5 Sonnet LLM with zero-shot chain of thought reasoning
+- LLM Python code generation and execution with safety controls
 - Structured outputs using Instructor library
 - Multithreading for concurrent problem-solving
-- Robust error handling and retry mechanisms
-- Timeout implementation for code execution
-- LLM-based result comparison and validation
-
-Core Features:
-- Dual answer generation: reasoning-based and code execution-based
-- Result comparison and discrepancy resolution
-- Safe Python code execution with error feedback
+- Robust error handling and retry mechanisms with timeouts

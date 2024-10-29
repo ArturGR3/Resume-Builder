@@ -1,0 +1,152 @@
+%==== PACKAGES AND OTHER DOCUMENT CONFIGURATIONS  ====%
+\documentclass{resume} % Use the custom resume.cls style
+\usepackage[left=0.25in,top=0.25in,right=0.25in,bottom=0.25in]{geometry} % Document margins
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome} % For GitHub and LinkedIn symbols
+\usepackage{textcomp} % For mobile phone and email symbols
+% \usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{xcolor}  % Required for defining custom colors
+\usepackage{hyperref}
+% Define your custom colors
+% \definecolor{myblue}{RGB}{173, 216, 246}
+% \definecolor{myblue}{RGB}{123, 176, 206}
+\definecolor{myblue}{RGB}{0, 164, 218}
+
+% Set hyperlink colors
+\hypersetup{
+    colorlinks=true,
+    linkcolor=myblue,
+    citecolor=myblue,
+    urlcolor=myblue
+}
+
+\usepackage{hyperref}
+
+%==== Headings ====%
+\name{Artur Grygorian} % Your name
+\address{
+{\faEnvelope} \href{mailto:arturgrygorian3@gmail.com}{arturgrygorian3@gmail.com} \quad {\faGithub} \href{https://github.com/ArturG93}{https://github.com/ArturG93} \quad {\faLinkedin} \href{https://www.linkedin.com/in/arturgrygorian/}{https://www.linkedin.com/in/arturgrygorian/}}
+\address{Remote, Germany}
+
+\begin{document}
+
+%==== SUMMARY SECTION ====%
+\begin{rSection}{Summary}
+    Results-driven Machine Learning Engineer with over 6 years of experience in building and deploying AI solutions, particularly in Generative AI and advanced analytics. Proven track record in leading cross-functional teams to design and implement machine learning infrastructure and tooling, optimizing model performance, and enhancing user experiences. Seeking to leverage expertise in LLMs and cloud-based solutions to contribute to innovative projects at Mozilla.
+\end{rSection}
+
+%==== WORK EXPERIENCE SECTION =====%
+    \begin{rSection}{Work Experience}
+                    \begin{rSubsection}
+                {Sr. Manager Analytics (Global Fulfilment Speed)}{Aug 2022 - Aug 2024}
+                {\normalfont{\textit{Wayfair}}}
+                {\normalfont{\textit{Berlin, Germany}}}
+                                    \item Led the Global Analytics Team responsible for the strategy of tech implementation to enhance delivery promise accuracy, directly aligning with product management and engineering teams.
+                                    \item Designed and implemented A/B testing frameworks to measure the impact of delivery speed on conversion, ensuring robust validation of models and initiatives.
+                                    \item Developed a causal inference framework to estimate the impact of delivery speed on conversion, guiding investments in faster delivery networks and optimizing model performance.
+                            \end{rSubsection}
+                    \begin{rSubsection}
+                {Analytics Manager (EU Fulfilment Speed)}{Jun 2021 - Aug 2022}
+                {\normalfont{\textit{Wayfair}}}
+                {\normalfont{\textit{Berlin, Germany}}}
+                                    \item Headed the EU analytics engineering team, focusing on delivery promise accuracy and collaborating with operations teams to build data pipelines and dashboards for data-driven decision-making.
+                                    \item Developed machine learning models to estimate delivery times, significantly improving conversion rates and generating substantial revenue increases.
+                                    \item Established KPIs and led business reviews, providing insights to executive leadership and ensuring alignment across teams.
+                            \end{rSubsection}
+                    \begin{rSubsection}
+                {Analytics Manager (Delivery Speed)}{Sep 2019 - Apr 2021}
+                {\normalfont{\textit{The Home Depot}}}
+                {\normalfont{\textit{Atlanta, GA, USA}}}
+                                    \item Created machine learning models that improved delivery promises, resulting in significant revenue growth and enhanced operational efficiency.
+                                    \item Collaborated with operations teams to uncover insights through exploratory analytics, building comprehensive views of the delivery network using SQL and BigQuery.
+                                    \item Established and led a data science team, mentoring members to achieve high-impact results and recognition within the organization.
+                            \end{rSubsection}
+                    \begin{rSubsection}
+                {Senior Data Analyst (Inbound Network Optimization)}{Aug 2017 - Sep 2019}
+                {\normalfont{\textit{The Home Depot}}}
+                {\normalfont{\textit{Atlanta, GA, USA}}}
+                                    \item Developed optimization models that resulted in substantial cost savings and improved planning processes, showcasing strong problem-solving skills.
+                                    \item Migrated key reports to interactive dashboards, enhancing stakeholder engagement and insight discovery.
+                                    \item Recognized for outstanding performance and rapid promotion, demonstrating effective communication and documentation skills.
+                            \end{rSubsection}
+            \end{rSection}
+
+%==== EDUCATION SECTION ====%
+\begin{rSection}{Education}
+            {\textbf{Master's in Statistics}} \hfill {2015 - 2017}
+        \\ % Line break
+        {\normalfont{\textit{Georgia Southern University}}}
+                    \begin{list}{$\bullet$}{ % Create list only if we have achievements
+                \leftmargin=1.5em
+                \itemsep=-0.5em
+                \vspace{-0.5em}
+            }
+                            \item Best Graduate Assistant Award
+                            \item GPA 4.0/4.0
+                        \end{list}
+                \vspace{0.1em}
+            {\textbf{Master's in Economics}} \hfill {2012 - 2014}
+        \\ % Line break
+        {\normalfont{\textit{Kyiv School of Economics}}}
+                    \begin{list}{$\bullet$}{ % Create list only if we have achievements
+                \leftmargin=1.5em
+                \itemsep=-0.5em
+                \vspace{-0.5em}
+            }
+                            \item Won KPMG Case Competition Ukraine
+                            \item Finalist of EY Case Competition Ukraine
+                        \end{list}
+                \vspace{0.1em}
+            {\textbf{Master's in Mathematics}} \hfill {2007 - 2013}
+        \\ % Line break
+        {\normalfont{\textit{Odesa National University}}}
+                \vspace{0.1em}
+    \end{rSection}
+
+%==== CERTIFICATIONS SECTION ====%
+\begin{rSection}{Certifications \& Training}
+            \begin{rSubsection}
+            {\href{https://coursera.org/share/9459a80d6710c6beebe8355a73b52368}{Generative AI with Large Language Models}}{October 2023}
+            {\normalfont{\textit{Coursera, DeepLearning.AI}}}{}
+                            \item % Empty item to prevent LaTeX error
+                    \end{rSubsection}
+            \begin{rSubsection}
+            {\href{https://certificate.datatalks.club/mlops-zoomcamp/2024/55db812d19a5b355790d127cb88ca72afdc49df5.pdf}{MLOps Bootcamp}}{Sep 2024}
+            {\normalfont{\textit{DataTalks.Club}}}{}
+                            \item % Empty item to prevent LaTeX error
+                    \end{rSubsection}
+            \begin{rSubsection}
+            {\href{https://certificate.datatalks.club/llm-zoomcamp/2024/55db812d19a5b355790d127cb88ca72afdc49df5.pdf}{LLM Bootcamp}}{Oct 2024}
+            {\normalfont{\textit{DataTalks.Club}}}{}
+                            \item % Empty item to prevent LaTeX error
+                    \end{rSubsection}
+    \end{rSection}
+
+%==== PROJECTS SECTION ====%
+\begin{rSection}{Projects}
+            \begin{rSubsection}
+            {\href{https://github.com/ArturGR3/Youtube-transcript-Q-A}{YouTube Transcript Analyzer}}{Oct 2024}{}{}
+                            \item % Empty item to prevent LaTeX error
+                    \end{rSubsection}
+            \begin{rSubsection}
+            {\href{https://github.com/ArturGR3/LLM-kaggle-competition}{LLM Kaggle Winning Solution}}{Sep 2024}{}{}
+                            \item % Empty item to prevent LaTeX error
+                    \end{rSubsection}
+    \end{rSection}
+
+%==== TECHNICAL SKILLS SECTION ====%
+\begin{rSection}{Technical Skills}
+    \begin{tabular}{ @{} >{\bfseries}l @{\hspace{1ex}} l }
+                    Programming Languages and Data Analysis: & Python, R, SQL \\
+                    Data Storage and Retrieval: & LanceDB, FAISS, ElasticSearch \\
+                    Data Visualization: & Tableau, Data Studio, Looker, matplotlib, seaborn, plotly, streamlit, gradio \\
+                    Machine Learning and AI: & PyTorch, TensorFlow, Scikit-learn, AutoGluon, LightAutoML, xgboost, lightgbm, catboost, MLflow, Instructor, RAG, LangChain, OpenAI, Anthropic, Gemini, Ollama, Groq \\
+                    Cloud Platforms: & AWS, GCP \\
+                    Development Tools: & GitHub, Docker, Makefile, VSCode, Copilot, Cursor \\
+            \end{tabular}
+\end{rSection}
+
+\end{document}

@@ -6,3 +6,6 @@ instructor
 dotenv
 requests
 flask
+pydantic_settings
+anthropic
+groq

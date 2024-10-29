@@ -62,16 +62,27 @@ def main(file_path: str, model: str = "gpt-4o-mini"):
         ],
         response_model=JobDescription,
     )
-    job_name = response.job_title
-    company_name = response.company_name
     
-    # save the response to a json file
-    saved_path = f'JD_{company_name}_{job_name}_{date.today().strftime("%Y-%m-%d")}.json'
+    # Create job results directory name
+    job_name = response.job_title.replace(" ", "_")
+    company_name = response.company_name.replace(" ", "_")
+    result_dir = f'job_results/{company_name}_{job_name}_{date.today().strftime("%Y-%m-%d")}'
     
-    with open(saved_path, 'w') as file:
+    # Create directory if it doesn't exist
+    os.makedirs(result_dir, exist_ok=True)
+    
+    # Save the JSON response
+    json_path = f'{result_dir}/job_description.json'
+    with open(json_path, 'w') as file:
         json.dump(response.model_dump(), file, indent=2)
     
-    print(f"files saved to {saved_path}")
+    # Save the original markdown file if it exists
+    if file_path.endswith('.md'):
+        import shutil
+        shutil.copy2(file_path, f'{result_dir}/job_description_markdown_file.md')
+    
+    print(f"Files saved to {result_dir}")
+    return json_path
 
 if __name__ == "__main__":
     main("mozila_jd.md", "gpt-4o-mini")

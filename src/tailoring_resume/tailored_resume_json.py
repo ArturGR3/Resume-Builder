@@ -5,6 +5,7 @@ from pydantic import BaseModel, Field
 from dotenv import load_dotenv, find_dotenv
 from src.utils.llm_factory import LLMFactory
 import json
+import os
 load_dotenv(find_dotenv(usecwd=True))
 
 api_provider = "openai"
@@ -56,14 +57,14 @@ class Project(BaseModel):
     name: str = Field(description="The name of the project.")
     date: str = Field(description="The date of the project. e.g Aug 2023")
     link: Optional[str] = Field(description="The link to the project.")   
-    description: str = Field(description="A description of the project tailored to the job description emphasizing the technologies and concepts used.")
+    key_technologies_concepts: str = Field(description="A description summarizing the project based on key_technologies_concepts tailored to the job description.")
     
 class Certifications_Training(BaseModel):
     name: str = Field(description="The name of the certification or training (course, bootcamp etc.)")
     organization: str = Field(description="The organization that awarded the certification or training.")
     date: str = Field(description="The date of the certification or training.")
     certificate_link: Optional[str] = Field(description="The link to the certificate of the certification or training.")
-    description: Optional[str] = Field(description="""Description of the certification or training tailored to the job description.""")
+    key_technologies_concepts: Optional[str] = Field(description="""A description summarizing the project based on key_technologies_concepts tailored to the job description.""")
     project: Optional[Project] = Field(description="The project related to the certification or training.")
     information_source: Optional[Literal["resume", "knowledge base", "both"]] = Field(description="The source of the information about the certification.")
     
@@ -101,6 +102,9 @@ def main(resume_path: str, job_description_path: str, model: str):
     resume_json = extract_json(resume_path)
     job_description_json = extract_json(job_description_path)
     
+    # Get the directory path from job_description_path
+    result_dir = os.path.dirname(job_description_path)
+    
     # create a prompt for the LLM
     system_prompt = f"""
     You are a resume expert with 15 years of experience in Software Engineering and Data Science. You are given a resume and a job description. You need to tailor the resume to the job description.
@@ -126,12 +130,12 @@ def main(resume_path: str, job_description_path: str, model: str):
         response_model=Resume,
     )
     
-    resume_title = response.resume_title
-    # save response into json file 
-    with open(f'{resume_title}_{date.today().strftime("%Y-%m-%d")}.json', 'w') as file:
+    # Save tailored resume JSON
+    json_path = f'{result_dir}/tailored_resume.json'
+    with open(json_path, 'w') as file:
         json.dump(response.model_dump(), file, indent=2)
     
-    return response
+    return json_path
 
 if __name__ == "__main__":
     model = 'gpt-4o-2024-08-06'

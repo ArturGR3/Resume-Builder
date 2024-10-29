@@ -1,0 +1,243 @@
+{
+  "resume_title": "Wayfair - Staff Machine Learning Engineer, Gen AI",
+  "contact_info": {
+    "name": "Artur Grygorian",
+    "email": "arturgrygorian3@gmail.com",
+    "location": [
+      "Remote, Germany"
+    ]
+  },
+  "summary": {
+    "summary": "Results-driven Machine Learning Engineer with over 6 years of experience in building and deploying AI solutions, particularly in Generative AI and advanced analytics. Proven track record in leading cross-functional teams to design and implement machine learning infrastructure and tooling, optimizing model performance, and enhancing user experiences. Seeking to leverage expertise in LLMs and cloud-based solutions to contribute to innovative projects at Mozilla."
+  },
+  "media": {
+    "linkedin_url": "https://www.linkedin.com/in/arturgrygorian/",
+    "github_url": "https://github.com/ArturG93",
+    "medium_url": "https://medium.com/@arturgrygorian3",
+    "website_url": null
+  },
+  "experiences": {
+    "work_experience": [
+      {
+        "role": "Sr. Manager Analytics (Global Fulfilment Speed)",
+        "company": "Wayfair",
+        "location": "Berlin, Germany",
+        "from_date": "Aug 2022",
+        "to_date": "Aug 2024",
+        "description": [
+          "Led the Global Analytics Team responsible for the strategy of tech implementation to enhance delivery promise accuracy, directly aligning with product management and engineering teams.",
+          "Designed and implemented A/B testing frameworks to measure the impact of delivery speed on conversion, ensuring robust validation of models and initiatives.",
+          "Developed a causal inference framework to estimate the impact of delivery speed on conversion, guiding investments in faster delivery networks and optimizing model performance."
+        ],
+        "nice_to_add": null
+      },
+      {
+        "role": "Analytics Manager (EU Fulfilment Speed)",
+        "company": "Wayfair",
+        "location": "Berlin, Germany",
+        "from_date": "Jun 2021",
+        "to_date": "Aug 2022",
+        "description": [
+          "Headed the EU analytics engineering team, focusing on delivery promise accuracy and collaborating with operations teams to build data pipelines and dashboards for data-driven decision-making.",
+          "Developed machine learning models to estimate delivery times, significantly improving conversion rates and generating substantial revenue increases.",
+          "Established KPIs and led business reviews, providing insights to executive leadership and ensuring alignment across teams."
+        ],
+        "nice_to_add": null
+      },
+      {
+        "role": "Analytics Manager (Delivery Speed)",
+        "company": "The Home Depot",
+        "location": "Atlanta, GA, USA",
+        "from_date": "Sep 2019",
+        "to_date": "Apr 2021",
+        "description": [
+          "Created machine learning models that improved delivery promises, resulting in significant revenue growth and enhanced operational efficiency.",
+          "Collaborated with operations teams to uncover insights through exploratory analytics, building comprehensive views of the delivery network using SQL and BigQuery.",
+          "Established and led a data science team, mentoring members to achieve high-impact results and recognition within the organization."
+        ],
+        "nice_to_add": null
+      },
+      {
+        "role": "Senior Data Analyst (Inbound Network Optimization)",
+        "company": "The Home Depot",
+        "location": "Atlanta, GA, USA",
+        "from_date": "Aug 2017",
+        "to_date": "Sep 2019",
+        "description": [
+          "Developed optimization models that resulted in substantial cost savings and improved planning processes, showcasing strong problem-solving skills.",
+          "Migrated key reports to interactive dashboards, enhancing stakeholder engagement and insight discovery.",
+          "Recognized for outstanding performance and rapid promotion, demonstrating effective communication and documentation skills."
+        ],
+        "nice_to_add": null
+      }
+    ]
+  },
+  "educations": {
+    "education": [
+      {
+        "degree": "Master's in Statistics",
+        "university": "Georgia Southern University",
+        "from_date": "2015",
+        "to_date": "2017",
+        "special_achievements": [
+          "Best Graduate Assistant Award",
+          "GPA 4.0/4.0"
+        ]
+      },
+      {
+        "degree": "Master's in Economics",
+        "university": "Kyiv School of Economics",
+        "from_date": "2012",
+        "to_date": "2014",
+        "special_achievements": [
+          "Won KPMG Case Competition Ukraine",
+          "Finalist of EY Case Competition Ukraine"
+        ]
+      },
+      {
+        "degree": "Master's in Mathematics",
+        "university": "Odesa National University",
+        "from_date": "2007",
+        "to_date": "2013",
+        "special_achievements": null
+      }
+    ]
+  },
+  "certifications_trainings": {
+    "certifications_trainings": [
+      {
+        "name": "Generative AI with Large Language Models",
+        "organization": "Coursera, DeepLearning.AI",
+        "date": "October 2023",
+        "certificate_link": "https://coursera.org/share/9459a80d6710c6beebe8355a73b52368",
+        "key_technologies_concepts": "Generative AI fundamentals, model optimization, advanced techniques, practical application with LLMs.",
+        "project": null,
+        "information_source": "resume"
+      },
+      {
+        "name": "MLOps Bootcamp",
+        "organization": "DataTalks.Club",
+        "date": "Sep 2024",
+        "certificate_link": "https://certificate.datatalks.club/mlops-zoomcamp/2024/55db812d19a5b355790d127cb88ca72afdc49df5.pdf",
+        "key_technologies_concepts": "MLOps concepts, model management, deployment strategies, monitoring ML services.",
+        "project": {
+          "name": "End to End ML Deployment Using AutoGluon and OpenFE",
+          "date": "Jun 2024",
+          "link": "https://github.com/ArturGR3/MLOps-project",
+          "key_technologies_concepts": "AutoML, feature engineering, cloud infrastructure, experiment tracking, containerization."
+        },
+        "information_source": "resume"
+      },
+      {
+        "name": "LLM Bootcamp",
+        "organization": "DataTalks.Club",
+        "date": "Oct 2024",
+        "certificate_link": "https://certificate.datatalks.club/llm-zoomcamp/2024/55db812d19a5b355790d127cb88ca72afdc49df5.pdf",
+        "key_technologies_concepts": "Large Language Models, retrieval-augmented generation, monitoring, orchestration of LLM workflows.",
+        "project": {
+          "name": "RAG for Recipe Recommendation System",
+          "date": "Sep 2024",
+          "link": "https://github.com/ArturGR3/food_search_RAG",
+          "key_technologies_concepts": "RAG with FAISS, LLM-based relevance scoring, user feedback monitoring."
+        },
+        "information_source": "resume"
+      }
+    ]
+  },
+  "projects": {
+    "projects": [
+      {
+        "name": "YouTube Transcript Analyzer",
+        "date": "Oct 2024",
+        "link": "https://github.com/ArturGR3/Youtube-transcript-Q-A",
+        "key_technologies_concepts": "YouTube Transcript API, LLM integration for content analysis, user-friendly interface."
+      },
+      {
+        "name": "LLM Kaggle Winning Solution",
+        "date": "Sep 2024",
+        "link": "https://github.com/ArturGR3/LLM-kaggle-competition",
+        "key_technologies_concepts": "Claude-3.5 LLM, multithreading for problem-solving, structured outputs."
+      }
+    ]
+  },
+  "skill_sections": {
+    "skill_section": [
+      {
+        "name": "Programming Languages and Data Analysis",
+        "skills": [
+          "Python",
+          "R",
+          "SQL"
+        ],
+        "nice_to_add": null
+      },
+      {
+        "name": "Data Storage and Retrieval",
+        "skills": [
+          "LanceDB",
+          "FAISS",
+          "ElasticSearch"
+        ],
+        "nice_to_add": null
+      },
+      {
+        "name": "Data Visualization",
+        "skills": [
+          "Tableau",
+          "Data Studio",
+          "Looker",
+          "matplotlib",
+          "seaborn",
+          "plotly",
+          "streamlit",
+          "gradio"
+        ],
+        "nice_to_add": null
+      },
+      {
+        "name": "Machine Learning and AI",
+        "skills": [
+          "PyTorch",
+          "TensorFlow",
+          "Scikit-learn",
+          "AutoGluon",
+          "LightAutoML",
+          "xgboost",
+          "lightgbm",
+          "catboost",
+          "MLflow",
+          "Instructor",
+          "RAG",
+          "LangChain",
+          "OpenAI",
+          "Anthropic",
+          "Gemini",
+          "Ollama",
+          "Groq"
+        ],
+        "nice_to_add": null
+      },
+      {
+        "name": "Cloud Platforms",
+        "skills": [
+          "AWS",
+          "GCP"
+        ],
+        "nice_to_add": null
+      },
+      {
+        "name": "Development Tools",
+        "skills": [
+          "GitHub",
+          "Docker",
+          "Makefile",
+          "VSCode",
+          "Copilot",
+          "Cursor"
+        ],
+        "nice_to_add": null
+      }
+    ]
+  },
+  "nice_to_add": []
+}
