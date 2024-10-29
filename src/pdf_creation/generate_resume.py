@@ -2,8 +2,9 @@ import json
 import os
 from jinja2 import Environment, FileSystemLoader
 import subprocess
+import argparse
 
-def generate_resume(json_file_path):
+def generate_resume(json_file_path, output_name='tailored_resume'):
     # Load JSON data
     with open(json_file_path, 'r') as f:
         resume_data = json.load(f)
@@ -33,8 +34,8 @@ def generate_resume(json_file_path):
     output_tex = template.render(**resume_data)
     
     # Write TEX file
-    tex_path = f'{result_dir}/tailored_resume.tex'
-    pdf_path = f'{result_dir}/tailored_resume.pdf'
+    tex_path = f'{result_dir}/{output_name}.tex'
+    pdf_path = f'{result_dir}/{output_name}.pdf'
     
     # Copy resume.cls to result directory
     cls_source = os.path.join('src/pdf_creation/resume_templates', 'resume.cls')
@@ -53,15 +54,15 @@ def generate_resume(json_file_path):
         os.chdir(result_dir)
         
         # Run pdflatex twice to ensure proper rendering of all elements
-        subprocess.run(['pdflatex', 'tailored_resume.tex'], check=True)
-        subprocess.run(['pdflatex', 'tailored_resume.tex'], check=True)
+        subprocess.run(['pdflatex', f'{output_name}.tex'], check=True)
+        subprocess.run(['pdflatex', f'{output_name}.tex'], check=True)
         
         # Change back to original directory
         os.chdir(current_dir)
         
         # Clean up auxiliary files
         for ext in ['.aux', '.log', '.out', '.cls']:
-            aux_file = os.path.join(result_dir, f'tailored_resume{ext}')
+            aux_file = os.path.join(result_dir, f'{output_name}{ext}')
             if os.path.exists(aux_file):
                 os.remove(aux_file)
         
@@ -72,4 +73,10 @@ def generate_resume(json_file_path):
         os.chdir(current_dir)  # Ensure we return to original directory even if error occurs
     
 if __name__ == "__main__":
-    generate_resume('Wayfair - Staff Machine Learning Engineer, Gen AI_2024-10-28.json')
+    parser = argparse.ArgumentParser(description='Generate a PDF resume from JSON data')
+    parser.add_argument('json_path', help='Path to the JSON resume data file')
+    parser.add_argument('--output', '-o', default='tailored_resume',
+                        help='Output filename (without extension, default: tailored_resume)')
+    
+    args = parser.parse_args()
+    generate_resume(args.json_path, args.output)

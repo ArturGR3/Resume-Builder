@@ -89,13 +89,9 @@
         \begin{rSubsection}
             {\href{\VAR{cert.certificate_link}}{\VAR{cert.name.replace('&', '\\&')}}}{\VAR{cert.date}}
             {\normalfont{\textit{\VAR{cert.organization}}}}{}
-            \BLOCK{ if cert.description }
-                \item \VAR{cert.description.replace('&', '\\&')}
-                \BLOCK{ if cert.project }
-                    \item Project: \href{\VAR{cert.project.link}}{\VAR{cert.project.name.replace('&', '\\&')}} - \VAR{cert.project.description.replace('&', '\\&')}
-                \BLOCK{ endif }
-            \BLOCK{ else }
-                \item % Empty item to prevent LaTeX error
+            \item \VAR{cert.key_technologies_concepts.replace('&', '\\&')}
+            \BLOCK{ if cert.project }
+                \item \textbf{Project:} \href{\VAR{cert.project.link}}{\VAR{cert.project.name.replace('&', '\\&')}} - \VAR{cert.project.key_technologies_concepts.replace('&', '\\&')}
             \BLOCK{ endif }
         \end{rSubsection}
     \BLOCK{ endfor }
@@ -108,11 +104,7 @@
     \BLOCK{ for project in projects.projects }
         \begin{rSubsection}
             {\href{\VAR{project.link}}{\VAR{project.name}}}{\VAR{project.date}}{}{}
-            \BLOCK{ if project.description }
-                \item \VAR{project.description.replace('&', '\\&')}
-            \BLOCK{ else }
-                \item % Empty item to prevent LaTeX error
-            \BLOCK{ endif }
+            \item \VAR{project.key_technologies_concepts.replace('&', '\\&')}
         \end{rSubsection}
     \BLOCK{ endfor }
 \end{rSection}

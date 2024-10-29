@@ -1,0 +1,56 @@
+{
+  "job_title": "Staff Machine Learning Engineer, Gen AI",
+  "company_name": "Mozilla",
+  "job_location": "Germany",
+  "job_type": "Full-time",
+  "job_duties_and_responsibilities": [
+    "Lead the design, development, and integration of Generative AI solutions in Firefox, collaborating cross functionally with product management, full stack engineering and design.",
+    "Build infrastructure for training and inference of LLMs and small language and vision models for use cases on the web and mobile Firefox product experiences.",
+    "Implement robust validation and testing procedures to ensure the developed models' generalizability and reliability.",
+    "Continuously monitor and optimize deployed models for performance and efficiency."
+  ],
+  "required_qualifications": [
+    "6+ years experience as a Machine Learning engineer building tooling and services for machine learning applications in production.",
+    "Experience with designing and building machine learning tooling and infrastructure for training, deploying, inference and validation of models.",
+    "Experience with distributed systems and platforms for AI integrations across a breadth of applications such as LLM APIs, Cloud based and open source tooling.",
+    "Leading architecture designs to execution independently and track record of improving the team\u2019s overall AI development velocity.",
+    "Strong problem-solving skills and ability to communicate complex concepts to technical and non-technical stakeholders.",
+    "Experience working collaboratively with product managers, project managers, and/or other non-engineering teams.",
+    "Effective documentation and communication skills on a distributed team."
+  ],
+  "preferred_qualifications": [
+    "Knowledge of and experience with using LLM solutions across different cloud providers.",
+    "You have previously successfully contributed to an open source project.",
+    "Track record of not only building one, but multiple projects deployed with an active user base.",
+    "Experience with responsible AI, transparent algorithms, and putting users\u2019 needs first.",
+    "Excellent communication skills, both in written and presentation form. You have the ability to quickly distill sophisticated topics into concepts that are tailored for your target audience.",
+    "You are a lifelong learner, and continue to refine and improve your skills when you see an opportunity to do so.",
+    "Experience with the browser extensions architecture or ecosystem.",
+    "Experience working in open source environments."
+  ],
+  "job_benefits": [
+    "Generous performance-based bonus plans to all eligible employees - we share in our success as one team",
+    "Rich medical, dental, and vision coverage",
+    "Generous retirement contributions with 100% immediate vesting (regardless of whether you contribute)",
+    "Quarterly all-company wellness days where everyone takes a pause together",
+    "Country specific holidays plus a day off for your birthday",
+    "One-time home office stipend",
+    "Annual professional development budget",
+    "Quarterly well-being stipend",
+    "Considerable paid parental leave",
+    "Employee referral bonus program",
+    "Other benefits (life/AD&D, disability, EAP, etc. - varies by country)"
+  ],
+  "keywords": [
+    "Machine Learning",
+    "Generative AI",
+    "Firefox",
+    "AI solutions",
+    "LLMs",
+    "open source",
+    "cloud providers",
+    "browser extensions",
+    "responsible AI",
+    "team collaboration"
+  ]
+}
