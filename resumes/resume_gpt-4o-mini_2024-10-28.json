@@ -3,9 +3,10 @@
     "name": "Artur Grygorian",
     "email": "arturgrygorian3@gmail.com",
     "possible_work_locations": [
-      "Berlin, Germany",
-      "Atlanta, GA, USA",
-      "Remote"
+      "Berlin, Germany (1st preference, work visa)",
+      "Atlanta, GA, USA (3rd preference, citizen)",
+      "Remote from Germany (2nd preference, work visa)",
+      "Remote from USA (4th preference, citizen)"
     ]
   },
   "summary": {
@@ -13,7 +14,7 @@
   },
   "media": {
     "linkedin_url": "https://www.linkedin.com/in/arturgrygorian/",
-    "github_url": "https://github.com/ArturG93",
+    "github_url": "https://github.com/ArturG3",
     "medium_url": "https://medium.com/@arturgrygorian3",
     "website_url": null
   },

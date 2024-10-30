@@ -14,7 +14,7 @@ With a decade of hands-on experience spanning supply chain and eCommerce. I brin
 
 ## PROFESSIONAL EXPERIENCE
 
-### Sr. Manager Analytics (Global Fulfilment Speed)
+### Sr. Manager Analytics (or Head of Delivery Analytics) (Global Fulfilment Speed)
 **Wayfair**, Berlin, Germany | Aug 2022 - Aug 2024
 
 - Head of Global Analytics Team (EU, UK, USA) responsible for strategy of tech implementation to improve delivery promise accuracy.
@@ -24,7 +24,7 @@ With a decade of hands-on experience spanning supply chain and eCommerce. I brin
 - Designed causal inference framework to estimate the impact of delivery speed on conversion, controlling for other factors that might affect conversion. This framework was used to guide the investment in faster delivery network and to estimate the ROI of the initiative.
 - Built a high performing team of 5+ data scientists and analytics engineers focusing on delivering high quality analytics and AI solutions.
 
-### Analytics Manager (EU Fulfilment Speed)
+### Analytics Manager (or Head of EU Delivery Analytics) (EU Fulfilment Speed)
 **Wayfair**, Berlin, Germany | Jun 2021 - Aug 2022
 
 - As a Head of EU analytics engineering team, responsible for delivery promise accuracy efforts, with a specific focus on supplier lead time and carrier speed. Provided analytics support to Operations teams via building data pipelines and dashboards that enabled them to make data-driven decisions.
@@ -32,7 +32,7 @@ With a decade of hands-on experience spanning supply chain and eCommerce. I brin
 - Established key performance indicators (KPIs) and designed supportive dashboards to evaluate the health of the delivery network. Led Weekly Business Reviews (WBRs) and Monthly Business Reviews (MBRs), bringing insights to executive leadership
 - Led strategy promotion strategy for delivery promise speed for high volume events like Black Friday, Christmas and Wayday. Involved stakeholders from across the company to ensure alignment and buy-in for the initiatives.
 
-### Analytics Manager (Delivery Speed)
+### Analytics Manager (or Head of Delivery Analytics) (Delivery Speed)
 **The Home Depot**, Atlanta, GA, USA | Sep 2019 - Apr 2021
 
 - Created an Machine Learning based model that improved delivery promise by 0.7 days without impact on delivery reliability, resulting in >$100M in annual GRS via higher conversion

@@ -70,12 +70,20 @@
 %==== SECTION FORMATTING ====%
 % Environment for main resume sections
 \newenvironment{rSection}[1]{
-  \vspace{0.5em}  % Add consistent top spacing
-  \MakeUppercase{\textbf{#1}}  % Section title in uppercase and bold
-  \sectionlineskip % space between title and line
-  \hrule  % Horizontal line under section title
-  \begin{list}{}{
-    \setlength{\leftmargin}{0.75em}  % Set left margin for section content
+  \ifthenelse{\equal{#1}{}}{
+    % No spacing if title is empty
+    \begin{list}{}{
+      \setlength{\leftmargin}{0.75em} %
+    }
+  }{
+    % Normal spacing and formatting if title exists
+    \vspace{0.5em}
+    \MakeUppercase{\textbf{#1}}
+    \sectionlineskip
+    \hrule
+    \begin{list}{}{
+      \setlength{\leftmargin}{0.75em}
+    }
   }
   \item[]
 }{

@@ -23,10 +23,10 @@ def extract_json(file_path: str) -> dict:
 class ContactInfo(BaseModel):
     name: str = Field(description="The name of the person.")
     email: str = Field(description="The email address of the person.")
-    location: Optional[List[str]] = Field(description="""Based on job description mention the work location.eg. USA remote (citizen), Berlin Germany (work visa)""")
+    location: Optional[List[str]] = Field(description="Matching work locations from resume that align with job requirements with work authorization status.")
 
 class Summary(BaseModel):
-    summary: str = Field(description="Sumamry of the resume based tailored to the job description.")
+    summary: str = Field(description="A concise professional summary highlighting relevant qualifications, experience, and achievements that align with the target role.")
 
 class Media(BaseModel):
     linkedin_url: Optional[str] = Field(description="The LinkedIn URL of the person.")
@@ -35,14 +35,20 @@ class Media(BaseModel):
     website_url: Optional[str] = Field(description="The website URL of the person.")
 
 class Experience(BaseModel):
-    role: str = Field(description="The job title or position held.")
+    role: str = Field(description="The job title or position held tailored to the job description.")
     company: str = Field(description="The name of the company or organization.")
     location: str = Field(description="The location of the company or organization. e.g. San Francisco, USA.")
     from_date: str = Field(description="The start date of the employment period. e.g., Aug 2023")
     to_date: str = Field(description="The end date of the employment period. e.g., Nov 2025")
-    description: List[str] = Field(description="""A list of bullet points describing the work experience tailored to the job description.
-                                   Utilize STAR methodology (Situation, Task, Action, Result) implicitly within each bullet point. Make sure to quantify the results and elaborate on the experiences if possible.""", min_items=3, max_items=3)
-    nice_to_add: Optional[List[str]] = Field(description="Something that is not present in the resume but will be good to add to make it more relevant to the job description.", min_items=0, max_items=5)
+    description: List[str] = Field(
+        description="""A list of bullet points describing work experience, using STAR format (Situation, Task, Action, Result).
+                      Each point should include quantified results and specific technical details if possible.
+                      Example: 'Led ML pipeline development reducing processing time 40% and improving accuracy 15%'""",
+        min_items=3,
+        max_items=3
+    )
+    nice_to_add: Optional[List[str]] = Field(description="""Additional relevant skills, experiences or achievements that would strengthen alignment with the job 
+                                             requirements but are not currently in the resume.""", min_items=0, max_items=5)
 
 class Experiences(BaseModel):
     work_experience: List[Experience] = Field(description="Work experiences tailored to the job description.")
@@ -115,42 +121,6 @@ def main(resume_path: str, job_description_path: str, provider: str = "openai", 
     # Get the directory path from job_description_path
     result_dir = os.path.dirname(job_description_path)
     
-    # # create a prompt for the LLM
-    # system_prompt = f"""
-    # You are a resume expert with 15 years of experience in Software Engineering and Data Science. 
-    # You are given a person's resume and job description to which the resume should be tailored.
-    # Primary role: Craft exceptional resume tailored to specific job descriptions, optimized for both ATS systems and human readers.
-    
-    # # Instructions for creating optimized resumes and cover letters
-    
-    # 1. Analyze job descriptions:
-    # - Extract key requirements and keywords
-    # - Note: Adapt analysis based on specific industry and role
-
-    # 2. Create compelling resumes:
-    # - Highlight quantifiable achievements (e.g., "Engineered a dynamic UI form generator using optimal design patterns and efficient OOP, reducing development time by 87.5%")
-    # - Tailor content to specific job and company
-    # - Emphasize candidate's unique value proposition
-    
-    # 3. Optimize for Applicant Tracking Systems (ATS):
-    # - Use industry-specific keywords strategically throughout documents
-    # - Ensure content passes ATS scans while engaging human readers
-
-    # 4. Provide industry-specific guidance:
-    # - Incorporate current hiring trends
-    # - Prioritize relevant information (apply "6-second rule" for quick scanning)
-    # - Use clear, consistent formatting
-
-    # 5. Apply best practices:
-    # - Quantify achievements where possible
-    # - Use specific, impactful statements instead of generic ones
-    # - Update content based on latest industry standards
-    # - Use active voice and strong action verbs
-
-    # 6. Make sure to only use the information provided in the resume. Don't invent any information. If there is is a specific information that might be usefull for the job description, mention it in the nice_to_add field.
-    # return the output in JSON format.
-    # """
-
     user_prompt = f"""
     You are an experienced resume expert specializing in Software Engineering and Data Science. Your task is to optimize a candidate's resume for a specific job description, ensuring it passes ATS scans while engaging human readers.
 
