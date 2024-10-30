@@ -29,6 +29,11 @@
 \BLOCK{ if media.linkedin_url }{\faLinkedin} \href{\VAR{media.linkedin_url}}{\VAR{media.linkedin_url}}\BLOCK{ endif }}
 \BLOCK{ if contact_info.location }\address{\VAR{contact_info.location[0]}}\BLOCK{ endif }
 
+% Define spacing commands at the start of the document
+\newcommand{\sectionspace}{\vspace{0.8em}}  % Space between sections
+\newcommand{\titlespace}{\vspace{-0.3em}}   % Space between title and line
+\newcommand{\contentspace}{\vspace{0.3em}}  % Space after the line before content
+\newcommand{\itemspace}{\vspace{0.2em}}     % Space between items
 
 \begin{document}
 
@@ -36,6 +41,8 @@
 % Conditional section that displays professional summary if provided
 \BLOCK{ if summary }
 \begin{rSection}{Summary}
+    \titlespace
+    \contentspace
     \VAR{summary.summary.replace('&', '\\&')}
 \end{rSection}
 \BLOCK{ endif }
@@ -65,32 +72,54 @@
     \end{rSection}
 \BLOCK{ endif }
 
-%==== EDUCATION SECTION ====%
-% Displays academic credentials with:
-% - Degree and date range
-% - University name
-% - Optional achievements/honors
-\BLOCK{ if educations.education }
-\begin{rSection}{Education}
-    \BLOCK{ for edu in educations.education }
-        {\textbf{\VAR{edu.degree}}} \hfill {\VAR{edu.from_date} - \VAR{edu.to_date}}
-        \\ % Line break
-        {\normalfont{\textit{\VAR{edu.university}}}}
-        \BLOCK{ if edu.special_achievements }
-            \begin{list}{\tiny$\bullet$}{ % Changed to smaller bullet
-                \leftmargin=1em
-                \itemsep=-0.5em
-                \vspace{-0.5em}
-            }
-            \BLOCK{ for achievement in edu.special_achievements }
-                \item \VAR{achievement}
-            \BLOCK{ endfor }
-            \end{list}
+%==== EDUCATION AND TECHNICAL SKILLS SECTION ====%
+\BLOCK{ if educations.education or skill_sections.skill_section }
+\begin{rSection}{}  % Empty main section title
+    \begin{minipage}[t]{0.48\textwidth}  % Left column for Education
+        \begin{rSection}{Education}  % Section title inside minipage
+        \BLOCK{ for edu in educations.education }
+            \vspace{0.5em}
+            {\textbf{\VAR{edu.degree}}} \hfill {\VAR{edu.from_date} - \VAR{edu.to_date}}
+            \\ % Line break
+            {\normalfont{\textit{\VAR{edu.university}}}}
+            \vspace{0.4em}
+            \BLOCK{ if edu.special_achievements }
+                \begin{list}{\tiny$\bullet$}{
+                    \leftmargin=1em
+                    \itemsep=0.1em
+                    \vspace{-0.5em}
+                }
+                \BLOCK{ for achievement in edu.special_achievements }
+                    \item \VAR{achievement}
+                \BLOCK{ endfor }
+                \end{list}
+            \BLOCK{ endif }
+            \BLOCK{ if not loop.last }
+                \vspace{0.5em}  % Add space between education entries
+            \BLOCK{ endif }
+        \BLOCK{ endfor }
+        \vspace{\fill}  % Add flexible space at the bottom
+        \end{rSection}
+    \end{minipage}
+    \hfill
+    {\color{gray}\vrule width 0.5pt}  % Thin vertical line in gray
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}  % Right column for Technical Skills
+        \begin{rSection}{Skills}  % Section title inside minipage
+        \BLOCK{ if skill_sections.skill_section }
+            \vspace{0.5em}
+            \begin{description}
+                \BLOCK{ for section in skill_sections.skill_section }
+                    \item[\textbf{\VAR{section.name}:}] \raggedright \VAR{', '.join(section.skills)}\\[0.3ex]
+                \BLOCK{ endfor }
+            \end{description}
+            \vspace{\fill}  % Add flexible space at the bottom
+        \end{rSection}  
         \BLOCK{ endif }
-        \vspace{0.1em}
-    \BLOCK{ endfor }
+    \end{minipage}
 \end{rSection}
 \BLOCK{ endif }
+
 
 %==== CERTIFICATIONS SECTION ====%
 % Lists professional certifications including:
@@ -101,6 +130,9 @@
 \BLOCK{ if certifications_trainings.certifications_trainings }
 \begin{rSection}{Certifications \& Training}
     \BLOCK{ for cert in certifications_trainings.certifications_trainings }
+        \BLOCK{ if not loop.first }  % Add paragraph break before all but first certificate
+            \par
+        \BLOCK{ endif }
         {\href{\VAR{cert.certificate_link}}{\textbf{\VAR{cert.name.replace('&', '\\&')}}}} \hfill {\VAR{cert.date}}
         \\ % Line break
         {\normalfont{\textit{\VAR{cert.organization}}}}
@@ -108,14 +140,13 @@
         \VAR{cert.description.replace('&', '\\&')} % Description on new line
         \\
         \textbf{Technologies:} \VAR{cert.key_technologies_concepts.replace('&', '\\&')}
-        \\
         \BLOCK{ if cert.project }
+            \\
             \textbf{Project:} \href{\VAR{cert.project.link}}{\VAR{cert.project.name.replace('&', '\\&')}} - 
             \VAR{cert.project.purpose.replace('&', '\\&')}
         \BLOCK{ endif }
-        
         \BLOCK{ if not loop.last }  % Add space only if it's not the last certification
-            \vspace{0.1em}
+            \vspace{0.3em}
         \BLOCK{ endif }
     \BLOCK{ endfor }
 \end{rSection}
@@ -140,19 +171,6 @@
             \vspace{0.1em}
         \BLOCK{ endif }
     \BLOCK{ endfor }
-\end{rSection}
-\BLOCK{ endif }
-
-%==== TECHNICAL SKILLS SECTION ====%
-% Organized list of technical competencies
-% Grouped by category (e.g., Languages, Frameworks, etc.)
-\BLOCK{ if skill_sections.skill_section }
-\begin{rSection}{Technical Skills}
-    \begin{description}
-        \BLOCK{ for section in skill_sections.skill_section }
-            \item[\textbf{\VAR{section.name}:}] \raggedright \VAR{', '.join(section.skills)}\\[0.3ex]
-        \BLOCK{ endfor }
-    \end{description}
 \end{rSection}
 \BLOCK{ endif }
 

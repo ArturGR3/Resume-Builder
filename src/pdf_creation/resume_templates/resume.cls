@@ -70,8 +70,9 @@
 %==== SECTION FORMATTING ====%
 % Environment for main resume sections
 \newenvironment{rSection}[1]{
+  \vspace{0.5em}  % Add consistent top spacing
   \MakeUppercase{\textbf{#1}}  % Section title in uppercase and bold
-  \sectionlineskip
+  \sectionlineskip % space between title and line
   \hrule  % Horizontal line under section title
   \begin{list}{}{
     \setlength{\leftmargin}{0.75em}  % Set left margin for section content
@@ -85,6 +86,6 @@
 % Define various spacing measurements used throughout the document
 \def\namesize{\Large}  % Size for name at top
 \def\addressskip{\smallskip}  % Space between address lines
-\def\sectionlineskip{\medskip}  % Space around section lines
+\def\sectionlineskip{\smallskip}  % Space around section lines
 \def\nameskip{\bigskip}  % Space after name
-\def\sectionskip{\medskip}  % Space between sections
+\def\sectionskip{\smallskip}  % Space between sections
