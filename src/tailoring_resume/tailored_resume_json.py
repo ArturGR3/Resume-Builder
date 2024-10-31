@@ -109,7 +109,7 @@ class Resume(BaseModel):
     nice_to_add: Optional[List[str]] = Field(description="Something that is not present in the resume but will be good to add to make it more relevant to the job description.", min_items=0, max_items=5)
     
 
-def main(resume_path: str, job_description_path: str, provider: str = "openai", model: str = "gpt-4o-mini"):
+def main(resume_path: str, job_description_path: str, provider: str ="anthropic", model: str = "claude-3-5-sonnet-20240620"):
     client = LLMFactory(provider=provider)
     if provider == "openai" and not model.startswith("gpt"):
         raise ValueError("Only OpenAI models starting with gpt are supported.")
@@ -122,7 +122,8 @@ def main(resume_path: str, job_description_path: str, provider: str = "openai", 
     result_dir = os.path.dirname(job_description_path)
     
     user_prompt = f"""
-    You are an experienced resume expert specializing in Software Engineering and Data Science. Your task is to optimize a candidate's resume for a specific job description, ensuring it passes ATS scans while engaging human readers. 
+    You are an experienced resume expert specializing in Software Engineering and Data Science. 
+    Your task is to optimize a candidate's resume for a specific job description, ensuring it passes ATS scans while engaging human readers. 
     Avoid anything that could cause Latex rendering issues like math equations, symbols, etc.
 
     Here is the candidate's resume:
@@ -137,19 +138,14 @@ def main(resume_path: str, job_description_path: str, provider: str = "openai", 
 
     Please follow these steps to optimize the resume:
 
-    1. Extract and list key requirements from the job description.
+    1. Understand the job description and requirements.
     2. Identify matching skills and experiences from the resume.
-    3. Brainstorm potential achievements that could be quantified.
-    4. Tailor the resume content to the specific job and company.
-    5. Highlight relevant quantifiable achievements.
-    6. Incorporate industry-specific keywords strategically.
-    7. Ensure ATS compatibility while maintaining readability.
-    8. Apply best practices (use active voice, strong action verbs, etc.).
-    9. Identify any missing information that would be useful for this application.
-
-    Throughout this process, maintain brevity and focus on the most impactful elements.
-
-    For each step, wrap your analysis in <optimization_step> tags to show your thought process before moving to the next step. Be concise in your analysis.
+    3. Tailor the resume content to the job description by:
+        - Highlighting relevant quantifiable achievements. Do not invent any achievements.
+        - Incorporating industry-specific keywords strategically.
+        - Applying best practices (use active voice, strong action verbs, etc.).
+        - Ensuring ATS compatibility while maintaining readability.
+    4. Identify any missing information that would be useful for this application.
 
     After completing all steps, provide your output in JSON format. 
     Important: Only use information provided in the original resume. Do not invent or assume any additional details. 
@@ -181,10 +177,10 @@ if __name__ == "__main__":
                       help='Path to the resume JSON file')
     parser.add_argument('--job_description_path', type=str, required=True,
                       help='Path to the job description JSON file')
-    parser.add_argument('--model', type=str, default='gpt-4o-mini',
-                      help='LLM model to use (default: gpt-4o-mini)')
-    parser.add_argument('--provider', type=str, default='openai',
-                      help='LLM provider to use (default: openai)')
+    parser.add_argument('--model', type=str, default='claude-3-5-sonnet-20240620',
+                      help='LLM model to use (default: claude-3-5-sonnet-20240620)')
+    parser.add_argument('--provider', type=str, default='anthropic',
+                      help='LLM provider to use (default: anthropic)')
     
     args = parser.parse_args()
     
