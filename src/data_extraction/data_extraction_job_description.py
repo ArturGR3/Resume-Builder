@@ -48,8 +48,7 @@ class JobDescription(BaseModel):
     job_benefits: List[str] = Field(description="The benefits of the job.")
     keywords: List[str] = Field(description="The keywords of the job that might be useful for the resume search.")
 
-def main(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini"):
-    
+def main(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini") -> str:
     client = LLMFactory(provider=provider)
     if provider == "openai" and not model.startswith("gpt"):
         raise ValueError("Only OpenAI models starting with gpt are supported.")
@@ -83,11 +82,13 @@ def main(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini"):
         import shutil
         shutil.copy2(file_path, f'{result_dir}/job_description_markdown_file.md')
     
-    print(f"Files saved to {result_dir}")
     return json_path
 
 if __name__ == "__main__":
-    main("mozila_jd.md", "gpt-4o-mini")
+    if len(sys.argv) > 1:
+        main(sys.argv[1])
+    else:
+        print("Please provide a file path")
     
 # with open('resume_gpt-4o-mini_2024-10-28.json', 'r') as file:
 #     data = json.load(file)

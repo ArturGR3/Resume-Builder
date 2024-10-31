@@ -3,7 +3,7 @@
 ### Name: Artur Grygorian
 ### Target Positions: Data Science & Analytics, Machine Learning Engineer, AI Engineer, Data Engineer, Technical Product Manager, Head Of Analytics.
 
-### Potential Location: Berlin, Germany; Atlanta, GA, USA; Remote;
+### Potential Location: Berlin, Germany (1st preference, work visa); Atlanta, GA, USA (3rd preference, citizen); Remote from Germany (2nd preference, work visa); Remote from USA (4th preference, citizen);
 ### Email: arturgrygorian3@gmail.com  
 ### [LinkedIn](https://www.linkedin.com/in/arturgrygorian/)  
 ### [Medium](https://medium.com/@arturgrygorian3)  

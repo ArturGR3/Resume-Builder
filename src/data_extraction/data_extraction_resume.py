@@ -9,6 +9,12 @@ import openai
 import instructor
 from dotenv import load_dotenv, find_dotenv
 import sys
+from pathlib import Path
+
+# Add the project root directory to Python path
+project_root = Path(__file__).parent.parent.parent
+sys.path.append(str(project_root))
+
 from src.utils.llm_factory import LLMFactory
 
 load_dotenv(find_dotenv(usecwd=True))
@@ -100,10 +106,9 @@ class Projects(BaseModel):
 class SkillSection(BaseModel):
     name: str = Field(description="""name or title of the skills group such as programming languages, data science, tools & technologies, cloud & DevOps, full stack, or soft skills found 
                       in the resume.""")
-    skills: List[str] = Field(description="Specific skills or competencies within the skill group, such as Python, JavaScript, C#, SQL in programming languages found in the resume.")
-
-class SkillSections(BaseModel):
-    skill_section: List[SkillSection] = Field(description="Skill sections, each containing a group of skills.")
+    skills: List[str] = Field(description="""Specific skills or competencies found across the entire resume, including those mentioned in work experience, projects, certifications, and education sections. 
+                             For example: technical skills like Python, JavaScript, SQL; soft skills like leadership, communication; domain knowledge like machine learning, data analysis; 
+                             tools and frameworks mentioned in projects or work experience.""")
 
 class Resume(BaseModel):
     contact_info: ContactInfo = Field(description="Contact information of the person.")
@@ -113,11 +118,12 @@ class Resume(BaseModel):
     educations: Educations = Field(description="Educations of the person.")
     certifications_trainings: Certifications_Trainings = Field(description="Certifications or trainings of the person.")
     projects: Projects = Field(description="Projects of the person.")
-    skill_sections: SkillSections = Field(description="Skill sections of the person.")
+    skill_sections: List[SkillSection] = Field(description="List of skills inferred from the resume grouped by meaningful categories.")
 
-def main(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini"):
+def main(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini") -> str:
     """
     Extract data from a resume file and save the response to a JSON file.
+    Returns the path to the saved JSON file.
     """ 
     client = LLMFactory(provider=provider)
     if provider == "openai" and not model.startswith("gpt"):
@@ -127,21 +133,25 @@ def main(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini"):
     response = client.create_completion(
         model=model,
         messages=[
-            {"role": "system", "content": "You are a resume parser. Parse the resume and extract the data according to the schema."},
+            {"role": "system", "content": "You are a resume parser. Parse the resume and extract the data according to the schema. If the fields are not exactly as in the schema, try to infer the most likely meaning."},
             {"role": "user", "content": resume_text}
         ],
         response_model=Resume,
     )
-    # save the response to a json file
-    saved_path = f'resume_{model}_{date.today().strftime("%Y-%m-%d")}.json'
+    
+    # Save the response to a json file in the specified directory
+    save_dir = Path('/home/artur/github/personal/Resume-Builder/resumes')
+    save_dir.mkdir(parents=True, exist_ok=True)
+    
+    saved_path = save_dir / f'resume_{date.today().strftime("%Y-%m-%d")}.json'
     
     with open(saved_path, 'w') as file:
         json.dump(response.model_dump(), file, indent=2)
     
-    print(f"files saved to {saved_path}")
+    return str(saved_path)
 
 if __name__ == "__main__":
-    main("./resumes/resume_md.md", "gpt-4o-mini")
+    main(file_path="./resumes/resume_md.md", provider="openai", model="gpt-4o-mini")
     
     
 # # open json file and print the data
