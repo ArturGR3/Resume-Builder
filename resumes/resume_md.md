@@ -98,6 +98,46 @@ With a decade of hands-on experience spanning supply chain and eCommerce. I brin
 
 ## Certifications and Trainings: 
 
+### [LLM Bootcamp (DataTalks.Club)](https://certificate.datatalks.club/llm-zoomcamp/2024/55db812d19a5b355790d127cb88ca72afdc49df5.pdf) - Oct 2024:
+
+Key Technologies and Concepts:
+- Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG)
+- OpenAI API and open-source models (HuggingFace Hub, Ollama)
+- Search technologies: Elasticsearch for text and vector search
+- Vector databases and embeddings
+- UI development with Streamlit
+- Evaluation techniques: Offline evaluation, cosine similarity, LLM-as-a-Judge metrics
+- Monitoring: Chat history tracking, user feedback, Grafana dashboards
+- Data ingestion and orchestration with Mage
+- Advanced RAG techniques: Hybrid search, document reranking
+- Integration with LangChain for improved RAG pipelines
+- Setting up LLM environments (GPU and CPU)
+- Implementing RAG systems with various search methods
+- Evaluating and monitoring LLM-based systems
+- Orchestrating LLM workflows and data ingestion
+- Applying best practices for RAG pipeline optimization
+
+### [MLOps Bootcamp (DataTalks.Club)](https://certificate.datatalks.club/mlops-zoomcamp/2024/55db812d19a5b355790d127cb88ca72afdc49df5.pdf) - Sep 2024:
+
+Key Technologies and Concepts:
+- Introduction to MLOps concepts and maturity models
+- Experiment tracking and model management using MLflow
+- Workflow orchestration 
+- Model deployment strategies: web services (Flask), streaming (AWS Kinesis, Lambda), and batch processing
+- Monitoring ML services using Prometheus and Grafana
+- Best practices: testing, code quality (linting, formatting)
+
+### [Applied Tiny Machine Learning (TinyML) for Scale (HarvardX)](https://courses.edx.org/certificates/06d1d51303de4beb87ee52fad25642d6) - March 2023
+
+Key Technologies and Concepts:
+- Machine Learning: Data preprocessing, model training, optimization for resource-constrained devices
+- TensorFlow Lite: Deployment of tiny ML models on low-power devices
+- MLOps for TinyML: Automation of ML lifecycle, scalable deployments
+- TinyML Applications: Case studies, project design, real-world implementation
+- Advanced Techniques: Neural architecture search, federated learning
+- Technologies: TensorFlow Lite for Microcontrollers, MLOps tools for TinyML
+- Skills Acquired: Developing, deploying, and scaling TinyML applications across domains
+
 ### [Generative AI with Large Language Models (Coursera, DeepLearning.AI)](https://coursera.org/share/9459a80d6710c6beebe8355a73b52368) - October 2023
 
 Key Technologies and Concepts:
@@ -115,27 +155,6 @@ Key Technologies and Concepts:
 - Query Optimization: Performance analysis, indexing, execution plans
 - T-SQL Programming: Stored procedures, user-defined functions, triggers
 - Advanced Concepts: Transaction management, error handling, dynamic SQL, XML and spatial data
-
-### [Applied Tiny Machine Learning (TinyML) for Scale (HarvardX)](https://courses.edx.org/certificates/06d1d51303de4beb87ee52fad25642d6) - March 2023
-
-Key Technologies and Concepts:
-- Machine Learning: Data preprocessing, model training, optimization for resource-constrained devices
-- TensorFlow Lite: Deployment of tiny ML models on low-power devices
-- MLOps for TinyML: Automation of ML lifecycle, scalable deployments
-- TinyML Applications: Case studies, project design, real-world implementation
-- Advanced Techniques: Neural architecture search, federated learning
-- Technologies: TensorFlow Lite for Microcontrollers, MLOps tools for TinyML
-- Skills Acquired: Developing, deploying, and scaling TinyML applications across domains
-
-### [MLOps Bootcamp (DataTalks.Club)](https://certificate.datatalks.club/mlops-zoomcamp/2024/55db812d19a5b355790d127cb88ca72afdc49df5.pdf) - Sep 2024:
-
-Key Technologies and Concepts:
-- Introduction to MLOps concepts and maturity models
-- Experiment tracking and model management using MLflow
-- Workflow orchestration 
-- Model deployment strategies: web services (Flask), streaming (AWS Kinesis, Lambda), and batch processing
-- Monitoring ML services using Prometheus and Grafana
-- Best practices: testing, code quality (linting, formatting)
 
 **Project**: [End to End ML Deployment Using AutoGluon and OpenFE](https://github.com/ArturGR3/MLOps-project) - Jun 2024
 

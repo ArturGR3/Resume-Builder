@@ -133,7 +133,8 @@ def main(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini") -
     response = client.create_completion(
         model=model,
         messages=[
-            {"role": "system", "content": "You are a resume parser. Parse the resume and extract the data according to the schema. If the fields are not exactly as in the schema, try to infer the most likely meaning."},
+            {"role": "system", "content": """You are a resume parser. Parse the resume and extract the data according to the schema.
+             If the fields are not exactly as in the schema, try to infer the most likely meaning. M"""},
             {"role": "user", "content": resume_text}
         ],
         response_model=Resume,

@@ -68,7 +68,7 @@ class Project(BaseModel):
     name: str = Field(description="The name of the project.")
     date: str = Field(description="The date of the project. e.g Aug 2023")
     link: Optional[str] = Field(description="The link to the project.")   
-    purpose: str = Field(description="The purpose of the project tailored to the job description.")
+    purpose: Optional[str] = Field(description="A concise 1-2 sentence description of what the project does and aims to achieve, derived from analyzing its key technologies and technical concepts.")
     key_technologies_concepts: Optional[str] = Field(description="""List of key technologies and concepts used in the project tailored to the job description.""")
     
 class Certifications_Training(BaseModel):
@@ -122,7 +122,8 @@ def main(resume_path: str, job_description_path: str, provider: str = "openai", 
     result_dir = os.path.dirname(job_description_path)
     
     user_prompt = f"""
-    You are an experienced resume expert specializing in Software Engineering and Data Science. Your task is to optimize a candidate's resume for a specific job description, ensuring it passes ATS scans while engaging human readers.
+    You are an experienced resume expert specializing in Software Engineering and Data Science. Your task is to optimize a candidate's resume for a specific job description, ensuring it passes ATS scans while engaging human readers. 
+    Avoid anything that could cause Latex rendering issues like math equations, symbols, etc.
 
     Here is the candidate's resume:
     <resume>
@@ -196,7 +197,7 @@ if __name__ == "__main__":
 
 
 # python src/tailoring_resume/tailored_resume_json.py \
-#     --resume_path /home/artur/github/personal/Resume-Builder/resumes/resume_gpt-4o-mini_2024-10-28.json \
-#     --job_description_path /home/artur/github/personal/Resume-Builder/job_results/Mozilla_Staff_Machine_Learning_Engineer,_Gen_AI_2024-10-29/job_description.json \
+#     --resume_path /home/artur/github/personal/Resume-Builder/resumes/resume_2024-10-31.json \
+#     --job_description_path /home/artur/github/personal/Resume-Builder/job_results/Quantified.ai_AI_Engineer_2024-10-31/job_description.json \
 #     --model claude-3-5-sonnet-20240620 \
 #     --provider anthropic

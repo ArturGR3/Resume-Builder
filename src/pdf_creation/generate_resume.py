@@ -4,6 +4,46 @@ from jinja2 import Environment, FileSystemLoader
 import subprocess
 import argparse
 
+
+def escape_for_latex(data):
+    if isinstance(data, dict):
+        new_data = {}
+        for key in data.keys():
+            new_data[key] = escape_for_latex(data[key])
+        return new_data
+    elif isinstance(data, list):
+        return [escape_for_latex(item) for item in data]
+    elif isinstance(data, str):
+        # Adapted from https://stackoverflow.com/q/16259923
+        latex_special_chars = {
+            "&": r"\&",
+            "%": r"\%",
+            "$": r"\$",
+            "#": r"\#",
+            "_": r"\_",
+            "{": r"\{",
+            "}": r"\}",
+            "~": r"\textasciitilde{}",
+            "^": r"\^{}",
+            "\\": r"\textbackslash{}",
+            "\n": "\\newline%\n",
+            "-": r"{-}",
+            "\xA0": "~",  # Non-breaking space
+            "[": r"{[}",
+            "]": r"{]}",
+        }
+        return "".join([latex_special_chars.get(c, c) for c in data])
+
+    return data
+
+# os.getcwd()
+# # example usage:
+# path_json ="tailored_resume.json"
+# with open(path_json, 'r') as f:
+#     resume_data = json.load(f)
+
+# test = escape_for_latex(resume_data)
+
 def generate_resume(json_file_path, output_name='tailored_resume'):
     # Load JSON data
     with open(json_file_path, 'r') as f:
@@ -31,7 +71,7 @@ def generate_resume(json_file_path, output_name='tailored_resume'):
     template = env.get_template('resume.tex.jinja')
     
     # Render template with data
-    output_tex = template.render(**resume_data)
+    output_tex = template.render(**escape_for_latex(resume_data))
     
     # Write TEX file
     tex_path = f'{result_dir}/{output_name}.tex'
