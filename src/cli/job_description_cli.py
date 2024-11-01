@@ -69,10 +69,10 @@ def process_file(file_path: str) -> Optional[str]:
             with open(file_path, 'r') as f:
                 json_data = json.load(f)
             
-            # Create directory and save JSON
-            job_name = json_data.get("job_title", "unknown").replace(" ", "_")
+            # Update folder creation to match the standardized format
             company_name = json_data.get("company_name", "unknown").replace(" ", "_")
-            result_dir = Path(f'job_results/{company_name}_{job_name}')
+            today_date = date.today().strftime("%Y%m%d")
+            result_dir = Path(f'job_results/{company_name}_{today_date}')
             result_dir.mkdir(parents=True, exist_ok=True)
             
             json_path = result_dir / "job_description.json"

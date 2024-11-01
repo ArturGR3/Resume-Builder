@@ -67,7 +67,8 @@ def main(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini") -
     # Create job results directory name
     job_name = response.job_title.replace(" ", "_")
     company_name = response.company_name.replace(" ", "_")
-    result_dir = f'job_results/{company_name}_{job_name}_{date.today().strftime("%Y-%m-%d")}'
+    today_date = date.today().strftime("%Y%m%d")
+    result_dir = f'job_results/{company_name}_{today_date}'
     
     # Create directory if it doesn't exist
     os.makedirs(result_dir, exist_ok=True)
