@@ -46,7 +46,7 @@ def json_preparation_for_latex(data):
 
 # test = escape_for_latex(resume_data)
 
-def generate_resume(json_file_path, output_name='tailored_resume'):
+def generate_resume(json_file_path, output_name=None):
     """
     This function generates a PDF resume from a JSON data file.
     """
@@ -56,6 +56,12 @@ def generate_resume(json_file_path, output_name='tailored_resume'):
     
     # Get the directory path from json_file_path
     result_dir = os.path.dirname(json_file_path)
+    
+    # Extract last name from contact info and use it for output_name if not provided
+    if output_name is None:
+        full_name = resume_data.get('contact_info', {}).get('name', '')
+        last_name = full_name.split()[-1] if full_name else 'resume'
+        output_name = f'resume_{last_name}'
     
     # Set up Jinja environment
     env = Environment(
@@ -120,8 +126,7 @@ def generate_resume(json_file_path, output_name='tailored_resume'):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Generate a PDF resume from JSON data')
     parser.add_argument('json_path', help='Path to the JSON resume data file')
-    parser.add_argument('--output', '-o', default='tailored_resume',
-                        help='Output filename (without extension, default: tailored_resume)')
+    parser.add_argument('--output', '-o', help='Output filename (without extension)')
     
     args = parser.parse_args()
     generate_resume(args.json_path, args.output)
