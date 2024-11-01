@@ -23,7 +23,7 @@ def extract_json(file_path: str) -> dict:
 class ContactInfo(BaseModel):
     name: str = Field(description="The name of the person.")
     email: str = Field(description="The email address of the person.")
-    location: Optional[List[str]] = Field(description="Matching work locations from resume that align with job requirements with work authorization status.")
+    location: Optional[List[str]] = Field(description="A list of work locations from the resume that match the job requirements, including work authorization status. e.g., 'Remote, United States (US Citizen)'")
 
 class Summary(BaseModel):
     summary: str = Field(description="A concise professional summary highlighting relevant qualifications, experience, and achievements that align with the target role.")
@@ -96,9 +96,13 @@ class SkillSection(BaseModel):
 class SkillSections(BaseModel):
     skill_section: List[SkillSection] = Field(description="Skill sections, each containing a group of skills tailored to the job description.")
 
+class Assessment(BaseModel):
+    score: int = Field(description="A score from 1 to 100 elaborating how high are the chances that the resume will be accepted.")
+    areas_of_improvement: Optional[List[str]] = Field(description="Potential areas of improvements for the resume.")
+
 class Resume(BaseModel):
     resume_title: str = Field(description="Short title starting with company name _ position name.")
-    contact_info: ContactInfo = Field(description="Contact information of the person.")
+    contact_info: ContactInfo = Field(description="Contact information of the person. With work location including work authorization status. e.g. Remote, United States (US Citizen)")
     summary: Summary = Field(description="A short summary of the person's professional background and skills tailored to the job description.")
     media: Media = Field(description="Media links of the person.")
     experiences: Experiences = Field(description="Work experiences of the person tailored to the job description.")
@@ -106,7 +110,7 @@ class Resume(BaseModel):
     certifications_trainings: Certifications_Trainings = Field(description="Certifications or trainings of the person tailored to the job description.")
     projects: Projects = Field(description="Projects of the person tailored to the job description.")
     skill_sections: SkillSections = Field(description="Skill sections of the person tailored to the job description.")
-    nice_to_add: Optional[List[str]] = Field(description="Something that is not present in the resume but will be good to add to make it more relevant to the job description.", min_items=0, max_items=5)
+    assessment: Assessment = Field(description="Assessment of the tailored resume from 1 to 100 and potential areas of improvements including technical skills and experiences")
     
 
 def main(resume_path: str, job_description_path: str, provider: str ="anthropic", model: str = "claude-3-5-sonnet-20240620"):
@@ -150,6 +154,7 @@ def main(resume_path: str, job_description_path: str, provider: str ="anthropic"
     After completing all steps, provide your output in JSON format. 
     Important: Only use information provided in the original resume. Do not invent or assume any additional details. 
     If there's specific information that might be useful for the job description but is missing from the resume, include it in the "nice_to_add" field.
+    Finally provide assessment of the resume from 1 to 100 and potential areas of improvements.
 
     Begin your analysis now."""
     
