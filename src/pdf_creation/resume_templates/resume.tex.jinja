@@ -77,13 +77,13 @@
 \begin{rSection}{}  % Empty main section title
     \begin{minipage}[t]{0.48\textwidth}  % Left column for Education
         \begin{rSection}{Education}  % Section title inside minipage
+        \vspace{0.5em}
         \BLOCK{ for edu in educations.education }
-            \vspace{0.5em}
             {\textbf{\VAR{edu.degree}}} \hfill {\VAR{edu.from_date} - \VAR{edu.to_date}}
-            \\ % Line break
+            \\
             {\normalfont{\textit{\VAR{edu.university}}}}
-            \vspace{0.4em}
             \BLOCK{ if edu.special_achievements }
+                \vspace{0.5em}
                 \begin{list}{\tiny$\bullet$}{
                     \leftmargin=1em
                     \itemsep=0.1em
@@ -94,9 +94,7 @@
                 \BLOCK{ endfor }
                 \end{list}
             \BLOCK{ endif }
-            \BLOCK{ if not loop.last }
-                \vspace{0.1em}  % Add space between education entries
-            \BLOCK{ endif }
+            \BLOCK{ if not loop.last } \par\vspace{0.7em}  \BLOCK{ endif }  % Add consistent spacing between education entries
         \BLOCK{ endfor }
         \vspace{\fill}  % Add flexible space at the bottom
         \end{rSection}
