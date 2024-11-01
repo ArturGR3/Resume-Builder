@@ -5,16 +5,18 @@ import subprocess
 import argparse
 
 
-def escape_for_latex(data):
+def json_preparation_for_latex(data):
+    """
+    This function prepares the JSON data for LaTeX by escaping special characters and ensuring that the data is properly structured.
+    """
     if isinstance(data, dict):
         new_data = {}
         for key in data.keys():
-            new_data[key] = escape_for_latex(data[key])
+            new_data[key] = json_preparation_for_latex(data[key])
         return new_data
     elif isinstance(data, list):
-        return [escape_for_latex(item) for item in data]
+        return [json_preparation_for_latex(item) for item in data]
     elif isinstance(data, str):
-        # Adapted from https://stackoverflow.com/q/16259923
         latex_special_chars = {
             "&": r"\&",
             "%": r"\%",
@@ -45,6 +47,9 @@ def escape_for_latex(data):
 # test = escape_for_latex(resume_data)
 
 def generate_resume(json_file_path, output_name='tailored_resume'):
+    """
+    This function generates a PDF resume from a JSON data file.
+    """
     # Load JSON data
     with open(json_file_path, 'r') as f:
         resume_data = json.load(f)
@@ -65,16 +70,16 @@ def generate_resume(json_file_path, output_name='tailored_resume'):
         line_comment_prefix='%#',
         trim_blocks=True,
         autoescape=False,
-    )
+    ) # This environment is used to render the LaTeX template with the JSON data.
     
     # Load template
     template = env.get_template('resume.tex.jinja')
     
     # Render template with data
-    output_tex = template.render(**escape_for_latex(resume_data))
+    output_tex = template.render(**json_preparation_for_latex(resume_data))
     
     # Write TEX file
-    tex_path = f'{result_dir}/{output_name}.tex'
+    tex_path = f'{result_dir}/{output_name}.tex' 
     pdf_path = f'{result_dir}/{output_name}.pdf'
     
     # Copy resume.cls to result directory
@@ -101,7 +106,7 @@ def generate_resume(json_file_path, output_name='tailored_resume'):
         os.chdir(current_dir)
         
         # Clean up auxiliary files
-        for ext in ['.aux', '.log', '.out', '.cls']:
+        for ext in ['.aux', '.log', '.out', '.cls', '.tex']:
             aux_file = os.path.join(result_dir, f'{output_name}{ext}')
             if os.path.exists(aux_file):
                 os.remove(aux_file)

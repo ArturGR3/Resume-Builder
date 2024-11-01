@@ -30,7 +30,7 @@
 \BLOCK{ if contact_info.location }\address{\VAR{contact_info.location[0]}}\BLOCK{ endif }
 
 % Define spacing commands at the start of the document
-\newcommand{\sectionspace}{\vspace{0.8em}}  % Space between sections
+\newcommand{\sectionspace}{\vspace{0.5em}}  % Space between sections
 \newcommand{\titlespace}{\vspace{-0.3em}}   % Space between title and line
 \newcommand{\contentspace}{\vspace{0.3em}}  % Space after the line before content
 \newcommand{\itemspace}{\vspace{0.2em}}     % Space between items
@@ -43,7 +43,7 @@
 \begin{rSection}{Summary}
     \titlespace
     \contentspace
-    \VAR{summary.summary.replace('&', '\\&')}
+    \VAR{summary.summary}
 \end{rSection}
 \BLOCK{ endif }
 
@@ -64,7 +64,7 @@
                 \vspace{-0.5em}
             }
             \BLOCK{ for point in exp.description }
-                \item \VAR{point.replace('&', '\\&')}
+                \item \VAR{point}
             \BLOCK{ endfor }
             \end{list}
             \vspace{0.1em}
@@ -95,7 +95,7 @@
                 \end{list}
             \BLOCK{ endif }
             \BLOCK{ if not loop.last }
-                \vspace{0.5em}  % Add space between education entries
+                \vspace{0.1em}  % Add space between education entries
             \BLOCK{ endif }
         \BLOCK{ endfor }
         \vspace{\fill}  % Add flexible space at the bottom
@@ -133,20 +133,20 @@
         \BLOCK{ if not loop.first }  % Add paragraph break before all but first certificate
             \par
         \BLOCK{ endif }
-        {\href{\VAR{cert.certificate_link}}{\textbf{\VAR{cert.name.replace('&', '\\&')}}}} \hfill {\VAR{cert.date}}
+        {\href{\VAR{cert.certificate_link}}{\textbf{\VAR{cert.name}}}} \hfill {\VAR{cert.date}}
         \\ % Line break
         {\normalfont{\textit{\VAR{cert.organization}}}}
         \\ % Added line break for description
-        \VAR{cert.description.replace('&', '\\&')} % Description on new line
+        \VAR{cert.description} % Description on new line
         \\
-        \textbf{Technologies:} \VAR{cert.key_technologies_concepts.replace('&', '\\&')}
+        \textbf{Technologies:} \VAR{cert.key_technologies_concepts}
         \BLOCK{ if cert.project }
             \\
-            \textbf{Project:} \href{\VAR{cert.project.link}}{\VAR{cert.project.name.replace('&', '\\&')}} - 
-            \VAR{cert.project.purpose.replace('&', '\\&')}
+            \textbf{Project:} \href{\VAR{cert.project.link}}{\VAR{cert.project.name}} - 
+            \VAR{cert.project.purpose}
         \BLOCK{ endif }
         \BLOCK{ if not loop.last }  % Add space only if it's not the last certification
-            \vspace{0.3em}
+            \vspace{0.1em}
         \BLOCK{ endif }
     \BLOCK{ endfor }
 \end{rSection}
@@ -163,9 +163,9 @@
     \BLOCK{ for project in projects.projects }
         {\href{\VAR{project.link}}{\textbf{\VAR{project.name}}}} \hfill {\VAR{project.date}}
         \\
-        \VAR{project.purpose.replace('&', '\\&')}
+        \VAR{project.purpose} 
         \\
-        \textbf{Technologies:} \VAR{project.key_technologies_concepts.replace('&', '\\&')}
+        \textbf{Technologies:} \VAR{project.key_technologies_concepts}
         
         \BLOCK{ if not loop.last }  % Add space only if it's not the last project
             \vspace{0.1em}

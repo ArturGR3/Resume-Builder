@@ -1,7 +1,7 @@
 
 ## Contact Details
 ### Name: Artur Grygorian
-### Target Positions: Data Science & Analytics, Machine Learning Engineer, AI Engineer, Data Engineer, Technical Product Manager, Head Of Analytics.
+### Target Positions: Data Science and Analytics, Machine Learning Engineer, AI Engineer, Data Engineer, Technical Product Manager, Head Of Analytics.
 
 ### Potential Location: Berlin, Germany (1st preference, work visa); Atlanta, GA, USA (3rd preference, citizen); Remote from Germany (2nd preference, work visa); Remote from USA (4th preference, citizen);
 ### Email: arturgrygorian3@gmail.com  
@@ -208,11 +208,11 @@ Key Technologies and Concepts:
 ## Projects: 
 ### [YouTube Transcript Analyzer](https://github.com/ArturGR3/Youtube-transcript-Q-A) - Oct 2024
 
-Purpose: Analyze YouTube video transcripts using LLMs to provide a summary of main topics, timestamps, and enable Q&A based on video content.
+Purpose: Analyze YouTube video transcripts using LLMs to provide a summary of main topics, timestamps, and enable Q and A based on video content.
 
 Key Technologies and Concepts:
 - YouTube Transcript API for fetching video transcripts
-- LLM integration for content analysis and Q&A
+- LLM integration for content analysis and Q and A
 - Instructor library for structured output generation
 - CSV file handling for transcript storage and retrieval
 - Streaming structural output with Partial class from Instructor

@@ -42,11 +42,11 @@ class JobDescription(BaseModel):
     company_name: str = Field(description="The name of the company.")
     job_location: str = Field(description="The location of the job. eg. Remote, New York, London, etc.")
     job_type: str = Field(description="The type of the job. eg. Full-time, Part-time, Internship, etc.")
-    job_duties_and_responsibilities: List[str] = Field(description="The purpose of the job and company, and the main duties and responsibilities.")
-    required_qualifications: List[str] = Field(description="Including education, minimum experience, specific knowledge, skills, abilities, and any required licenses or certifications.")
-    preferred_qualifications: List[str] = Field(description="Additional qualifications that could set a candidate apart.")
-    job_benefits: List[str] = Field(description="The benefits of the job.")
-    keywords: List[str] = Field(description="The keywords of the job that might be useful for the resume search.")
+    job_duties_and_responsibilities: Optional[List[str]] = Field(description="The purpose of the job and company, and the main duties and responsibilities.")
+    required_qualifications: Optional[List[str]] = Field(description="Including education, minimum experience, specific knowledge, skills, abilities, and any required licenses or certifications.")
+    preferred_qualifications: Optional[List[str]] = Field(description="Additional qualifications that could set a candidate apart.")
+    job_benefits: Optional[List[str]] = Field(description="The benefits of the job.")
+    keywords: Optional[List[str]] = Field(description="The keywords of the job that might be useful for the resume search.")
 
 def main(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini") -> str:
     client = LLMFactory(provider=provider)
