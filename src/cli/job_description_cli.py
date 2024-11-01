@@ -103,26 +103,18 @@ def process_resume_file(file_path: str) -> Optional[str]:
     _, file_extension = os.path.splitext(file_path)
     
     if file_extension.lower() == '.json':
-        # Handle JSON file
+        # For JSON files, validate the format and return the original path
         try:
             with open(file_path, 'r') as f:
-                json_data = json.load(f)
-            
-            resume_dir = Path('/home/artur/github/personal/Resume-Builder/resumes')
-            resume_dir.mkdir(parents=True, exist_ok=True)
-            
-            json_path = resume_dir / f"resume_{date.today().strftime('%Y-%m-%d')}.json"
-            with open(json_path, 'w') as f:
-                json.dump(json_data, f, indent=2)
-            
-            return str(json_path)
+                json.load(f)  # Just validate JSON format
+            return file_path
             
         except json.JSONDecodeError:
             console.print("❌ Invalid JSON format in file!", style="bold red")
             return None
     
     elif file_extension.lower() in ['.md', '.pdf']:
-        # Process through AI
+        # Process through AI and create new file
         return extract_resume(file_path)
     
     else:
