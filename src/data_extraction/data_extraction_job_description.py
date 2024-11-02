@@ -55,7 +55,7 @@ def main(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini") -
     
     job_description_text = extract_text(file_path)
     
-    response = client.create_completion(
+    response, completion = client.create_completion(
         model=model,
         messages=[
             {"role": "system", "content": "You are a job description parser. Parse the job description and extract the data according to the schema."},

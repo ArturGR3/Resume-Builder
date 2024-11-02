@@ -158,7 +158,7 @@ def main(resume_path: str, job_description_path: str, provider: str ="anthropic"
 
     Begin your analysis now."""
     
-    response = client.create_completion(
+    response, completion = client.create_completion(
         model=model,
         messages=[
             # {"role": "system", "content": system_prompt},

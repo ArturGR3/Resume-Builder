@@ -130,7 +130,7 @@ def main(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini") -
         raise ValueError("Only OpenAI models starting with gpt are supported.")
     
     resume_text = extract_text(file_path)
-    response = client.create_completion(
+    response, completion = client.create_completion(
         model=model,
         messages=[
             {"role": "system", "content": """You are a resume parser. Parse the resume and extract the data according to the schema.

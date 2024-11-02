@@ -6,7 +6,7 @@ project_root = str(Path(__file__).resolve().parents[2])
 sys.path.append(project_root)
 
 import asyncio
-from typing import Type, Any, Dict, List
+from typing import Type, Any, Dict, List, Tuple
 from pydantic import BaseModel
 from src.utils.settings import get_settings
 from openai import AsyncOpenAI, OpenAI
@@ -35,7 +35,7 @@ class LLMFactory:
     
     def create_completion(
         self, response_model: Type[BaseModel], messages: List[Dict[str, str]], **kwargs
-    ) -> Any:
+    ) -> Tuple[Any, Any]:
         completion_params = {
             "model": kwargs.get("model", self.settings.default_model),
             "temperature": kwargs.get("temperature", self.settings.temperature),
@@ -45,37 +45,37 @@ class LLMFactory:
             "messages": messages,
             "stream": kwargs.get("stream", False),  # Add streaming option, default to False    
         }
-        return self.client.chat.completions.create(**completion_params)
+        return self.client.chat.completions.create_with_completion(**completion_params)
 
-class AsyncLLMFactory:
-    def __init__(self, provider: str, sem_number: int = 2):
-        self.provider = provider
-        self.settings = getattr(get_settings(), provider)
-        self.client = self._initialize_client()
+# class AsyncLLMFactory:
+#     def __init__(self, provider: str, sem_number: int = 2):
+#         self.provider = provider
+#         self.settings = getattr(get_settings(), provider)
+#         self.client = self._initialize_client()
     
-    def _initialize_client(self):
-        client_map = {
-            "openai": (AsyncOpenAI, instructor.patch),
-            "anthropic": (AsyncAnthropic, instructor.patch),
-            "groq": (AsyncGroq, lambda client: instructor.patch(client, mode=instructor.Mode.TOOLS))
-        }
+#     def _initialize_client(self):
+#         client_map = {
+#             "openai": (AsyncOpenAI, instructor.patch),
+#             "anthropic": (AsyncAnthropic, instructor.patch),
+#             "groq": (AsyncGroq, lambda client: instructor.patch(client, mode=instructor.Mode.TOOLS))
+#         }
         
-        if self.provider not in client_map:
-            raise ValueError(f"Unsupported LLM provider: {self.provider}")
+#         if self.provider not in client_map:
+#             raise ValueError(f"Unsupported LLM provider: {self.provider}")
         
-        ClientClass, wrapper = client_map[self.provider]
-        return wrapper(ClientClass(api_key=self.settings.api_key))
+#         ClientClass, wrapper = client_map[self.provider]
+#         return wrapper(ClientClass(api_key=self.settings.api_key))
     
-    async def create_completion(
-        self, response_model: Type[BaseModel], messages: List[Dict[str, str]], **kwargs
-    ) -> Any:
-        completion_params = {
-            "model": kwargs.get("model", self.settings.default_model),
-            "temperature": kwargs.get("temperature", self.settings.temperature),
-            "max_retries": kwargs.get("max_retries", self.settings.max_retries),
-            "max_tokens": kwargs.get("max_tokens", self.settings.max_tokens),
-            "response_model": response_model,
-            "messages": messages,
-            "stream": kwargs.get("stream", False),  # Add streaming option, default to False
-        }
-        return await self.client.chat.completions.create(**completion_params)
+#     async def create_completion(
+#         self, response_model: Type[BaseModel], messages: List[Dict[str, str]], **kwargs
+#     ) -> Any:
+#         completion_params = {
+#             "model": kwargs.get("model", self.settings.default_model),
+#             "temperature": kwargs.get("temperature", self.settings.temperature),
+#             "max_retries": kwargs.get("max_retries", self.settings.max_retries),
+#             "max_tokens": kwargs.get("max_tokens", self.settings.max_tokens),
+#             "response_model": response_model,
+#             "messages": messages,
+#             "stream": kwargs.get("stream", False),  # Add streaming option, default to False
+#         }
+#         return await self.client.chat.completions.create(**completion_params)

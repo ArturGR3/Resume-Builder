@@ -17,23 +17,40 @@ def json_preparation_for_latex(data):
     elif isinstance(data, list):
         return [json_preparation_for_latex(item) for item in data]
     elif isinstance(data, str):
-        latex_special_chars = {
-            "&": r"\&",
-            "%": r"\%",
-            "$": r"\$",
-            "#": r"\#",
-            "_": r"\_",
-            "{": r"\{",
-            "}": r"\}",
-            "~": r"\textasciitilde{}",
-            "^": r"\^{}",
-            "\\": r"\textbackslash{}",
-            "\n": "\\newline%\n",
-            "-": r"{-}",
-            "\xA0": "~",  # Non-breaking space
-            "[": r"{[}",
-            "]": r"{]}",
-        }
+        # Don't escape hyphens in URLs
+        if data.startswith(('http://', 'https://', 'www.')):
+            latex_special_chars = {
+                "&": r"\&",
+                "%": r"\%",
+                "$": r"\$",
+                "#": r"\#",
+                "_": r"\_",
+                "{": r"\{",
+                "}": r"\}",
+                "~": r"\textasciitilde{}",
+                "^": r"\^{}",
+                "\\": r"\textbackslash{}",
+                "\n": "\\newline%\n",
+                "\xA0": "~",  # Non-breaking space
+            }
+        else:
+            latex_special_chars = {
+                "&": r"\&",
+                "%": r"\%",
+                "$": r"\$",
+                "#": r"\#",
+                "_": r"\_",
+                "{": r"\{",
+                "}": r"\}",
+                "~": r"\textasciitilde{}",
+                "^": r"\^{}",
+                "\\": r"\textbackslash{}",
+                "\n": "\\newline%\n",
+                "-": r"{-}",
+                "\xA0": "~",  # Non-breaking space
+                "[": r"{[}",
+                "]": r"{]}",
+            }
         return "".join([latex_special_chars.get(c, c) for c in data])
 
     return data
