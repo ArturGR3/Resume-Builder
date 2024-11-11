@@ -44,7 +44,6 @@ def extract_markdown_text(markdown_path: str) -> str:
     with open(markdown_path, 'r', encoding='utf-8') as file:
         return file.read()
 
-
 class ContactInfo(BaseModel):
     name: str = Field(description="The name of the person.")
     email: str = Field(description="The email address of the person.")

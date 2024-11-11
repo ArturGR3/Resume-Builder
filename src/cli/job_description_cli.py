@@ -8,7 +8,6 @@ import tempfile
 import os
 from pathlib import Path
 from typing import Optional
-import time
 from datetime import date
 import logging
 from rich.logging import RichHandler
