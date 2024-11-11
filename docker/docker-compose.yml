@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  resume-builder:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ../:/app
+      - resume_data:/app/jobs_results
+      - resume_logs:/app/logs
+    env_file:
+      - ../.env
+    environment:
+      - PYTHONPATH=/app
+    stdin_open: true
+    tty: true
+    command: bash
+
+volumes:
+  resume_data:
+  resume_logs:

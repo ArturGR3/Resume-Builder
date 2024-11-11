@@ -3,9 +3,11 @@ pydantic
 typing
 openai
 instructor
-dotenv
+python-dotenv
 requests
 flask
 pydantic_settings
 anthropic
 groq
+rich
+typer
