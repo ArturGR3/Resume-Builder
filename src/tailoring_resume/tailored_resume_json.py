@@ -113,7 +113,7 @@ class Resume(BaseModel):
     assessment: Assessment = Field(description="Assessment of the tailored resume from 1 to 100 and potential areas of improvements including technical skills and experiences")
     
 
-def main(resume_path: str, job_description_path: str, provider: str ="anthropic", model: str = "claude-3-5-sonnet-20240620"):
+def tailor_resume(resume_path: str, job_description_path: str, provider: str ="anthropic", model: str = "claude-3-5-sonnet-20240620"):
     client = LLMFactory(provider=provider)
     if provider == "openai" and not model.startswith("gpt"):
         raise ValueError("Only OpenAI models starting with gpt are supported.")
@@ -189,7 +189,7 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
     
-    main(
+    tailor_resume(
         resume_path=args.resume_path,
         job_description_path=args.job_description_path,
         provider=args.provider,

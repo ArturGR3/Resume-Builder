@@ -60,7 +60,7 @@ class JobDescription(BaseModel):
     job_benefits: Optional[List[str]] = Field(description="The benefits of the job.")
     keywords: Optional[List[str]] = Field(description="The keywords of the job that might be useful for the resume search.")
 
-def main(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini") -> str:
+def extract_job_description(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini") -> str:
     """
     Main function to extract the job description from a file.
     Cheapest option is OpenAI gpt-4o-mini is choosen as the task is easy.
@@ -101,7 +101,7 @@ def main(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini") -
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
-        main(sys.argv[1])
+        extract_job_description(sys.argv[1])
     else:
         print("Please provide a file path")
     

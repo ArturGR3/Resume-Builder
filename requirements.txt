@@ -11,3 +11,4 @@ anthropic
 groq
 rich
 typer
+pyyaml

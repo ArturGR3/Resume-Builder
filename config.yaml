@@ -1,0 +1,16 @@
+# Options for the AI providers and models
+# openai: gpt-4o-mini, gpt-4o. For better quality use gpt-4o - recommended for resume tailoring
+# anthropic: claude-3-5-sonnet-20240620. The best option for resume tailoring
+
+job_description:
+  provider: openai
+  model: gpt-4o-mini
+
+resume_description:
+  provider: openai
+  model: gpt-4o-mini
+
+resume_tailoring:
+  provider: anthropic
+  model: claude-3-5-sonnet-20240620 
+

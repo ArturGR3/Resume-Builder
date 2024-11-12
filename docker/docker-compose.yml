@@ -5,10 +5,8 @@ services:
     build:
       context: ..
       dockerfile: docker/Dockerfile
-    volumes:
-      - ../:/app
-      - resume_data:/app/jobs_results
-      - resume_logs:/app/logs
+    volumes: # this is needed to mount the volumes, meaning the directories in the container
+      - ../:/app # this creates a bind mount from the ../ directory to /app in the container, that makes the files in the container available to the host machine and vice versa
     env_file:
       - ../.env
     environment:
@@ -20,3 +18,5 @@ services:
 volumes:
   resume_data:
   resume_logs:
+
+  

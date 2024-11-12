@@ -1,11 +1,25 @@
-from src.cli.job_description_cli import process_job_description
+import yaml
+from pathlib import Path
+from src.cli.job_description_cli import tailoring_resume_to_job_description
+
+def load_config():
+    config_path = Path("config.yaml")
+    if not config_path.exists():
+        raise FileNotFoundError("config.yaml not found in root directory")
+    
+    with open(config_path, "r") as f:
+        return yaml.safe_load(f)
 
 if __name__ == "__main__":
-    # job_description_file = "jobs_results/Mozila_Staff_Machine_Learning_Engineer_Gen_AI_2024_10_28/mozila_jd.md"
-    # resume_file = "resumes/resume_gpt-4o-mini_2024-10-28.json"
-    # provider_for_parsing = "openai"
-    # provider_for_tailoring = "anthropic"
-    # model_for_parsing = "gpt-4o-mini"
-    # model_for_tailoring = "claude-3-5-sonnet-20240620"
-    
-    process_job_description() 
+    try:
+        config = load_config()
+        tailoring_resume_to_job_description(
+            provider_for_parsing=config["job_description"]["provider"],
+            model_for_parsing=config["job_description"]["model"],
+            provider_for_resume=config["resume_description"]["provider"],
+            model_for_resume=config["resume_description"]["model"],
+            provider_for_tailoring=config["resume_tailoring"]["provider"],
+            model_for_tailoring=config["resume_tailoring"]["model"]
+        )
+    except Exception as e:
+        print(f"Error: {e}") 

@@ -119,7 +119,7 @@ class Resume(BaseModel):
     projects: Projects = Field(description="Projects of the person.")
     skill_sections: List[SkillSection] = Field(description="List of skills inferred from the resume grouped by meaningful categories.")
 
-def main(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini") -> str:
+def extract_resume(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini") -> str:
     """
     Extract data from a resume file and save the response to a JSON file.
     Returns the path to the saved JSON file.
@@ -151,7 +151,7 @@ def main(file_path: str, provider: str = "openai", model: str = "gpt-4o-mini") -
     return str(saved_path)
 
 if __name__ == "__main__":
-    main(file_path="./resumes/resume_md.md", provider="openai", model="gpt-4o-mini")
+    extract_resume(file_path="./resumes/resume_md.md", provider="openai", model="gpt-4o-mini")
     
     
 # # open json file and print the data
