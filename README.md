@@ -7,7 +7,7 @@ Steps to run it:
 docker-compose up --build -d
 docker-compose exec resume-builder bash
 ```
-5. run the script and follow the instructions:
+5. run the script in the container and follow the instructions:
 ``` bash
 python main.py
 ```
